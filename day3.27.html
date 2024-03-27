@@ -9,14 +9,14 @@
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Guodaxia</title>
 </head>
 
 <body style="background-color: rgba(229, 233, 236, 0.973);">
     <p style="background-color: blue;">段落</p>
     <h1 style="background-color: black;">标题</h1>
     <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">字体</h2>
-    <p style="font-family: arial;color: red;font-size: 200px;">字体颜色和大小</p>
+    <p style="font-family: arial;color: red;font-size: 29px;">字体颜色和大小</p>
     <h3 style="text-align: center;">文本居中对齐</h3>
     <center>
         <h2>文本居中对齐</h3>
@@ -24,4 +24,232 @@
     <h4>用head内部样式</h4>
 </body>
 <!--代码格式对齐 ctrl+k ctrl+f-->
+<a href="http://www.runoob.com/html/html-tutorial.html"><img src="https://www.runoob.com/try/demo_source/smiley.gif"
+        alt="菜鸟html教程"></a>
+<!--表格  3x3-->
+<table border="1">
+    <tr>
+        <th>标题1</th>
+        <th>标题2</th>
+        <th>标题3</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+</table>
+<h4>垂直标题</h4>
+<table border="1">
+    <tr>
+        <th>标题1</th>
+        <td>内容</td>
+    </tr>
+    <tr>
+        <th>标题2</th>
+        <td>内容</td>
+    </tr>
+</table>
+<h3>跨两行的表格</h3>
+<table>
+    <tr>
+        <th>phone</th>
+        <th colspan="2">firstname</th>
+        <th colspan="2">包含表格的</th>
+    </tr>
+    <tr>
+        <td>123</th>
+        <td>guo</th>
+        <td>chengzhi</th>
+        <td>
+            <table border="1">
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+            </table>
+        </td>
+    </tr>
+
+</table>
+<table border="1" cellpadding="10">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+</table>
+<p>无序列表ul有序列表ol可以用start属性定义有序列表开始的数字</p>
+<ur>
+    <li>coffee</li>
+    <li>milk</li>
+</ur>
+<ol start="100">
+    <li>追风</li>
+    <li>追风筝</li>
+</ol>
+<ol type="A">
+    <Li>用ABC做列表开始</Li>
+    <Li>用ABC做列表开始</Li>
+</ol>
+
+<table width="500px" border="0">
+    <tr>
+        <td colspan="3" style="background-color:#666FFF;text-align:center">
+            <h1>Div布局实例</h1>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100px;background-color: #fff;">
+            <b>菜单</b><br>
+            num1<br>
+            num2<br>
+            nmu3
+        </td>
+
+        <td style="background-color:#FFFF00 ;height: 200px;width: 300px;;">
+            中间内容
+        </td>
+
+        <td style="width: 100px;height: 200px;background-color: black;color: #fff;">
+            信息内容
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="3" style="text-align: center;background-color: rgba(254, 240, 255, 0.859);">作者：Cty</td>
+    </tr>
+</table>
+<h2>表单</h2>
+<form action="Untitled-1.html" method="post">
+    <label for="name">用户名:</label>
+    <input id="name" ; name="name" type="text" required>
+    <br>
+    <label for="password">密码：</label>
+    <input id="password" ;name="password" type="password" required>
+    <br>
+    <label>性别:</label>
+    <label for="male">男</label>
+    <input id="male" ; name="gender" type="radio">
+    <label for="fmale">女</label>
+    <input id="fmale" ; name="gender" type="radio">
+    <br>
+    <input type="checkbox" id="email" name="email">
+    <label for="email">订阅邮件</label>
+    <br>
+    <label for="counter">国家:</label>
+    <select id="counter" name="counter">
+        <optgroup label="counter">
+            <option value="cn">cn</option>
+            <option value="usa">usa</option>
+            <option value="uk">uk</option>
+        </optgroup>
+        <optgroup label="food">
+            <option value="mantou">馒头</option>
+        </optgroup>
+    </select>
+    <br>
+    <input type="submit" value="提交">
+    <input type="reset" value="重置">
+    <br>
+
+    <fieldset>
+        <legend>TI</legend>
+    </fieldset>
+</form>
+<br>
+<textarea rows="3" cols="3">文本框 
+    <a href="">
+</textarea>
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+    <input type="range" id="a" value="50">100
+    +<input type="number" id="b" value="50">
+    =<output id="x" for="a b"> </output>
+</form>
+<br>
+
+<iframe src="Untitled-1.html" name="iframe_a" height="100" width="100%"></iframe>
+<p>a标签的target属性规定在何处打开链接 这里再框架中显示新的链接<a href="https://www.runoob.com" target="iframe_a"><img
+            src="https://www.runoob.com/try/demo_source/smiley.gif"></a></p>
+
+<p id="demo">
+    javascript可以触发事件，像点击按钮。
+</p>
+<script>
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Hello Javascript!";
+        x = document.getElementById("demo")
+        x.style.color = "red"
+    }
+</script>
+<button type="button" onclick="myFunction()">点我</button>
+<textarea rows="10" cols="100">
+<script>
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Hello Javascript!";
+        x = document.getElementById("demo") // 找到元素
+        x.style.color = "#ff0000";          // 改变样式
+    }
+</script>
+<button type="button" onclick="myFunction()">点我</button>
+</textarea>
+<P></P><textarea cols="100" rows="100" >
+    <h1>最大的标题</h1>
+    <h2> . . . </h2>
+    <h3> . . . </h3>
+    <h4> . . . </h4>
+    <h5> . . . </h5>
+    <h6>最小的标题</h6>
+     
+    <p>这是一个段落。</p>
+    <br> （换行）
+    <hr> （水平线）
+    <!-- 这是注释 -->
+    
+    文本格式化（Formatting）
+    <b>粗体文本</b>
+    <code>计算机代码</code>
+    <em>强调文本</em>
+    <i>斜体文本</i>
+    <kbd>键盘输入</kbd> 
+    <pre>预格式化文本</pre>
+    <small>更小的文本</small>
+    <strong>重要的文本</strong>
+     
+    <abbr> （缩写）
+    <address> （联系信息）
+    <bdo> （文字方向）
+    <blockquote> （从另一个源引用的部分）
+    <cite> （工作的名称）
+    <del> （删除的文本）
+    <ins> （插入的文本）
+    <sub> （下标文本）
+    <sup> （上标文本）
+        普通的链接：<a href="http://www.example.com/">链接文本</a>
+图像链接： <a href="http://www.example.com/"><img src="URL" alt="替换文本"></a>
+邮件链接： <a href="mailto:webmaster@example.com">发送e-mail</a>
+书签：
+<a id="tips">提示部分</a>
+<a href="#tips">跳到提示部分</a>
+<form action="demo_form.php" method="post/get">
+    <input type="text" name="email" size="40" maxlength="50">
+    <input type="password">
+    <input type="checkbox" checked="checked">
+    <input type="radio" checked="checked">
+    <input type="submit" value="Send">
+    <input type="reset">
+    <input type="hidden">
+    <select>
+    <option>苹果</option>
+    <option selected="selected">香蕉</option>
+    <option>樱桃</option>
+    </select>
+    <textarea name="comment" rows="60" cols="20"></textarea>
+     
+    </form>
+</textarea>
 </html>
