@@ -1,0 +1,123 @@
+/* 内联样式 > id 选择器 > 类选择器 = 伪类选择器 = 属性选择器 > 标签选择器 = 伪元素选择器*/
+.mix{
+    border-style:dashed dotted solid double;
+    border: width 1px;;
+}
+/* 顺时针 分别显示边框的上右下左*/
+p.mix{
+    border-style: hidden;
+}
+table {
+  color: blue;
+  border-style: double ;
+  border-width: thick;/*b-width 要在b-style属性使用后菜鸟使用*/
+  border-color: brown;
+}
+/*可以单独定义边框的上下左右的样式颜色宽度 top lift  right border-bottom-color */
+td{
+   color: aquamarine;
+    border: 1px double palegreen;/*是border的width style color*/
+}
+.outline{ 
+    outline:  double red thick;
+    border: 1px  solid black;
+    width: fit-content;
+    margin: 5px;
+    font-style:italic;
+}
+/*margin是外边距  与轮廓属性不冲突 在outline之外。*/
+.padding{
+    padding: 50px 50px;
+    background-color:antiquewhite;
+    width: fit-content;
+}
+/*p{ }: 为所有 p 元素指定一个样式。
+.marked{ }: 为所有 class="marked" 的元素指定一个样式。
+.marked p{ }: 为所有 class="marked" 元素内的 p 元素指定一个样式。
+p.marked{ }: 为所有 class="marked" 的 p 元素指定一个样式。*/
+p{
+    font-size: large;
+}
+.marked{
+    color: blue;
+}
+.marked p{ color: red;
+}
+p.marked{
+    background-color: antiquewhite;
+}
+
+div.a:visited{color:green;background-color: rgb(206, 16, 16);display: block;padding: 4px; }
+div.a:hover{color: blue;text-decoration: underline; font-size: 150%;background-color: blanchedalmond;font-family: Georgia; font-style: italic;}
+div.a:active{color: red;}    
+
+div.fixed{  /*元素的位置相对于浏览器窗口是固定位置。
+    即使窗口是滚动的它也不会移动：*/
+    position: fixed;
+    top:30px;
+    right:10px;
+}
+h3.pos_left{/*pos_left表示图例组件离容器左侧的距离。*/
+position: relative;
+left: -20px;
+}
+h3.pos_right{
+    position: relative;
+    left: 20px;
+}
+div.sticky{
+    
+    position: sticky;
+    background-color: aqua;
+    top: 0;
+    width: fit-content;
+    border: 2px solid green;
+    z-index: 1;
+}
+div img{
+    z-index: -1;     
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+/* z-index:-1 表示他在图层的下面  */ 
+
+div.overflow{
+    overflow: auto;
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    position: relative;
+    right: -20px;
+    cursor:wait;
+}
+div.float{
+    float: left;
+    width: 100px;
+    height: 90px;
+    margin: 5px;
+}
+div.footer{
+    color: aliceblue;
+    background-color: black;
+    float: right;
+    padding: 15px;
+}
+/* 设置内容水平和垂直都居中  垂直居中用padding 水平可以直接text-algin=content
+另外一种方法是让上下左右的padding设置成一样的值再让width随内容适应*/
+.content{
+    padding:  70px 0;
+    border: 3px solid green;
+	text-align: center ;
+}
+/*div a{
+    color：blue；
+} 表示a是div的后代选择器  
+只要是在div中就可以有效果
+而 dia>a{
+       color：blue；
+}表示为div紧挨着的a标签可以使用
+div~p {} 表示的是div后的所有p标签都可以使用
+*/
+/* p:first-child {}表示所有标签的第一个p标签可以使用
+   p>a:first-child{} 表示所有p元素的第一个a元素*/

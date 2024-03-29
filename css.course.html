@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css.course.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="mix">隐藏边框</p>
+    <b class="mix">混合边框</B>
+    <div style="width: fit-content; margin:auto;" class="mix">混合边框</div>
+    <br>
+    <table>
+        <tr>
+            <th>边框</td>
+            <th>边框</td>
+            <th>边框</td>
+        </tr>
+        <tr>
+            <td>边框</td>
+            <td>边框</td>
+            <td>边框</td>
+        </tr>
+        <tr>
+            <td>边框</td>
+            <td>边框</td>
+            <td style="border-top-color: 1;">边框</td>
+        </tr>
+    </table>
+    <br>
+    <div class="outline">
+        带轮廓的边框
+    </div>
+    <div class="padding">
+        上下左右都一样
+    </div>
+    <p>我的css是字体变大</p>
+    <div class="marked">
+        我的字体颜色是蓝色
+        <p>我的文字是红色</p>
+    </div>
+    <p class="marked">我有背景颜色</p>
+    <a style="display:inline;">我用的是内联元素a 不会换行</a>
+    <a>可以用display让需要换行的元素不换行</a>
+</body>
+<!-- display=none和visibility:collapse（塌陷）是一样的效果
+  而 visibility：hidden只隐藏了内容仍要占空间-->
+<div class="fixed">
+some word 不会跟随网页变化改变
+</div>
+<h3>这是一个relative文本</h3>
+<h3 class="pos_left">相对的离左边是-20px</h3>
+<h3 class="pos_right">相对离左边20px </h3>
+<h3 style="position: absolute;left:50%; top:50%;">绝对位置</h3>
+
+<div class="sticky">粘性定位</div>
+<b style="padding-bottom :2000px;" >向下滚动</b>
+<P>一直下滑可以看到效果</P>
+<div>
+    <img src="./images/wanba.png">  
+</div>
+<div class="overflow" >当文本很长时 如果元素中的内容超出了给定的宽度和高度属性，overflow 属性可以确定是否显示滚动条等行为。</div>
+
+    <float>
+        <img  src="./images/company_logo_cfca.jpg">
+        <img  src="./images/company_logo_cfca.jpg">
+        <img  src="./images/company_logo_after.png">
+        <img  src="./images/check.png">
+    </float>
+    <float>
+        
+        <img src="./images/company_logo_cfca.jpg">
+        <img src="./images/company_logo_cfca.jpg">
+        <img src="./images/company_logo_after.png">
+    <img  src="./images/check.png">
+    </float>
+
+<div class="footer">
+   <p> 底部文件</p>
+</div>
+<div class="content">
+    内容水平和垂直都居中
+</div>
+<form action="demo-form.php" method="get">
+    First name: <input type="text" name="fname" /><br>
+    Last name: <input type="text" name="lname" /><br>
+    <input type="submit" value="提交" />
+    </form>
+</html>
