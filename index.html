@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <title>Document</title>
+    <style>
+        body{
+            background-image:url(https://ts3.cn.mm.bing.net/th?id=OIP-C.YwQZJ_SoLGm-kVT-e-Xc2AHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2);
+  background-repeat: no-repeat;
+  background-position: top center;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+            width: 450px; /* max-content是最大宽度 盒子就有多宽，不会顾及父级盒子有多宽，只满足自己的需求   
+            min-content是最小 让文字按列排放 让宽度最小*/
+        position:fixed;
+        top:0  /**/
+        }
+
+      li{
+        float: left;
+  
+      }
+      li a, .dropbtn{
+        display: inline-block;
+        color:white;
+        text-align: center;
+        padding: 8px 16px;
+       
+      }
+      li a:hover:not(.active){
+        color: black;
+        background-color: white;
+      }
+      .active{
+        background-color: green;
+        color: black;
+      }
+
+      .dropdown{
+      display: inline-block;
+      position: relative;
+      }
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: aquamarine;
+  min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a{
+  color: black;
+  padding: 12px 16px;
+  display: block;
+}
+.dropdown-content a:hover
+{background-color: red;}
+.dropdown:hover .dropdown-content {
+    display: block;
+
+}
+p{
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+  background-color: red;
+  transition:width 5s 2s; 
+}
+P:hover{
+  width: 100%;
+}
+
+img{
+  opacity: 0;
+  
+}
+img:hover{
+  opacity: 1;
+}
+img:active{
+  opacity: 1;
+  background-image: url(./images/company_logo_aloha.jpg);
+}
+[title~=hello]
+{
+	color:blue;
+}
+@media screen and (max-width: 1000px) {
+  [title~=hello]{
+    display: none;
+  }
+}
+[lang|=w]{
+  color: purple;
+}
+div:lang(form){
+  border-radius: 4px;
+  background-color: aliceblue;
+  width: 25%;
+  float: right;
+  right: 0;
+  padding: 20px;
+}
+input[type=text],select{
+  width: 100%;
+  padding: 12px 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 8px 0;
+  box-sizing: border-box;  /*不让表格宽度超出父元素*/
+  background-image: url('https://static.jyshare.com/images/mix/searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+}
+input[type=text]:focus,select:focus{
+  background-color: lightblue;
+} /*hover是鼠标停留在那出现变化   focus是鼠标点击后出现变化*/
+input[type=text]:hover{
+  border: 1px solid;
+}
+input[type=submit]
+{
+  width: 100%;
+  background-color: green;
+  color:white;
+  text-align: center;
+padding: 12px 20px ;
+margin: 8px 0;
+cursor:wait;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+    </style>
+</head>
+
+<body>
+    <h1  style="text-align: center;">首页</h1>
+    <!--导航栏在h1下面 所有是行换的 可以设置位置fixed top=0 
+    就可以显示在最高处 -->
+    <ul>
+        <li><a class="active " href=""><i class="fa fa-home"></i>首页</a></li>
+        <li><a >新闻</a></li>
+        <li><a >咨询</a></li>
+        <div  class="dropdown" style="float: right;">
+          <a class="dropbtn" >下拉菜单</a>
+          <div  class="dropdown-content">
+            <a>链接1</a>
+            <a>链接1</a>
+            <a>链接1</a>
+          </div>
+        </div>
+    </ul>
+<a href="https://img-blog.csdnimg.cn/20200814180909728.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxNTIyMzMx,size_16,color_FFFFFF,t_70#pic_center" >max-content</a>
+<span style="padding-bottom:  1000px;">能不能让导航栏 或者链接设置stand beside在这个图片旁边 </span>
+<p>鼠标放这里会变长 耐心一点</p>
+<img title="i can hidden" src="./images/company_logo_aloha.jpg">
+<!--[title~=hello]
+{
+	color:blue;
+} 是title中有hello 颜色都是蓝色
+ lang|=en -->
+<div>
+  <span  title="hi hello">hello everyone</span>
+  <span  title="hi hello">hello everyone</span>
+</div>
+<br>
+<span  lang="w">hello everybody</span>
+<span >hello everybody</span>
+
+<div lang="form">
+<from>
+  <label  for="fname">First name</label>
+  <input type="text"  placeholder="your firstname">
+  
+  <label  for="lname">Last name</label>
+  <input type="text" value="your listname" >
+
+  <label  for="counter">Counter</label>
+  <select id="counter">
+    <optgroup label="亚洲" > 
+    <option value="cn">中国</option>
+    <option value="hanguo" >韩国</option>
+   </optgroup>
+    <optgroup label="欧洲">欧洲</optgrou>
+      <option value="T1" selected></option>
+  </select>
+  <input type="submit" value="submit">
+</from>
+</div>
+</body>
+
+
+
+</html>
