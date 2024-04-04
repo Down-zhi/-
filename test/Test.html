@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <style>
+.tooltip{
+    border-bottom: 1px solid rebeccapurple;
+}
+.tooltiptext{
+    visibility:hidden;
+    width: 100px;
+    z-index: 1;
+    background-color: #fff;
+}
+.tooltip:hover .tooltiptext{
+    visibility:visible;
+}
+div:lang(form){
+  border-radius: 4px;
+  background-color: aliceblue;
+  width: 25%;
+  float: right;
+  right: 0;
+  padding: 20px;
+}
+p{
+  width: 100%;
+  height: 0px;
+
+  background-color: red;
+  transition:height 1s; 
+}
+a:hover p{
+  height: 1000px;
+}
+    </style>
+</head>
+<body>
+    <a class="tooltip">你好啊 
+        <p class="tooltiptext"> 我是提示词</p>
+    </a>
+    <div lang="form">
+    <form>
+        <label>laster
+        </label>
+        <input type="text" value="your listname" >
+    </form>
+</div>
+<a>Xiaomi手机
+<p></p>
+</a>
+</body>
+</html>

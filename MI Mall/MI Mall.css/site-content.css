@@ -1,0 +1,144 @@
+.container{
+    width: 1226px;
+    height: 100%;
+   margin: 0 auto;
+}
+.site-content .site-Carousel{
+    position: relative;
+}
+.site-content .site-Carousel a{
+    display: block;
+    width: 204px;
+    height: 460px;
+    position: relative;
+}
+.site-content .site-Carousel .hidden{
+visibility: hidden;
+width: 234px;
+height: 458px;
+background-color:lightgoldenrodyellow;
+position: absolute;
+top:-18px;
+left: 234px;
+color: black;
+}
+.site-content .site-Carousel a:hover tt.hidden{
+    visibility: visible;
+}
+
+/* 轮播图  父元素要相对定位子元素才能绝对定位*/
+.site-content .site-Carousel>p{
+width: 41px;
+height: 69px;
+background:url("/images/icon-slides.png");
+}
+.site-content .site-Carousel p.prev{
+    background-position: -82px 0;;
+}
+.site-content .site-Carousel  p.next{
+    background-position: -123px 0;;
+    right: 0;
+    background-image: url("/images/icon-slides.png");
+}
+.site-content .site-Carousel a img{
+    display: block;
+    width: 1226px;
+    height: 460px;
+    position: relative;
+    z-index:-1;
+}
+.site-content .site-Carousel .Carousel-list{
+    position: absolute;
+    top: 0px;
+
+}
+.site-content .site-Carousel .Carousel-list ul{
+padding: 20px 0;
+background: rgba(105, 101, 101, .6);
+width: 234px;
+
+}
+.site-content .site-Carousel .Carousel-list ul li{
+height: 42px;
+
+
+}
+.site-content .site-Carousel .Carousel-list ul li a{
+    color: white;
+    padding-left: 30px;
+    padding-top: 14px;
+     display: block;
+   height: 28px;
+   font-size: 14px;
+   position: relative;
+}
+.site-content .site-Carousel .Carousel-list ul li:hover{
+    background-color :#ff6700; 
+}
+.site-content .site-Carousel .Carousel-list ul li span{
+position: absolute;
+left:200px;
+top: 12px;
+float: right;
+color:aliceblue;
+display: block;
+height: 42px;
+font-size: 16px;
+}
+/* 6个小内容的地方 */
+.content-sub{
+margin-top: 18px;
+overflow: hidden;
+}
+.content-sub .content-channel{
+    float: left;
+    width: 234px;
+    padding: 3px;
+}
+
+.content-sub .content-channel ol li{
+width: 33%;
+float: left;
+height: 85px;
+}
+.content-sub.content-channel ol li a{
+width: 70px;
+height: 64px;
+padding: 18px 0 0;
+color: white;
+opacity: 0.7;
+}
+.content-sub.content-channel ol li a:hover{
+    text-decoration: none;
+}
+.content-sub.content-channel ol li a i{
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 23px 4px ;
+}
+/* 右侧三个图片 */
+.content-sub.content-list{
+    float: left;
+    width: 992px;
+}
+.content-sub.content-list ol{                                                                             
+    width: 100%;
+}
+.content-sub.content-list ol li{
+    float:left;
+    width: 33.33%;
+    height: 170px;
+    text-align: right;
+}
+.content-sub.content-list ol li img{
+    width: 316px;
+    height: 170px;
+}
+
+
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
+}
