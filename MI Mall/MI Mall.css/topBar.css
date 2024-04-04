@@ -1,0 +1,150 @@
+body{/*直接官网上打开开发者模式直接去看元素的宽高等*/
+    font: 14px / 1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+   color: #3331;
+   background-color: #fff;
+   min-width: 1226px;
+}
+/* 1浮动
+2. reset
+3、div内的元素不换号
+white-space: nowrap;
+display: inline-block;
+4、消除padding对宽高影响
+box-sizing: border-box;
+5、a标签图片太大，尺寸超过容器大小
+background-size: contain;
+6、网页跳转打开新的页面
+target: "_blank";
+7、宽高充满父布局
+width: 100%;
+heigth:100%;
+8、转为块级元素
+display: block;可以设置宽高
+ display: inline-block;既能设置在一行显示，又能设置宽高。
+ display: none;元素消失，空间不保留，移除文档流。
+9、转为行内元素
+display: inline;设置宽高无效，大小撑满父布局，如果需要转为行内元素还能设置宽高，则有2种方法：浮动和定位
+10、居中
+text-align: center; 文本居中
+line-height: 50px; 容器居中
+11、鼠标箭头变为小手指
+cursor: pointer;
+12、字体设置
+font-family: "'Helvetica Neue', Helvetica, Arial, sans-serif";
+13、a标签设置
+&:hover {
+    text-decoration-color:rgb(46, 49, 53);
+    text-decoration-line:underline;
+    text-decoration-style:solid;
+    text-decoration-color:blue;
+    color: blue;
+}
+13、去掉下划线
+text-decoration: none;
+14、定位
+position: relative; 父类相对定位
+position: absolute; 子类绝对定位
+如果只添加子类不添加父类的定位会导致脱标，加上会在父容器内绝对定位
+14、字体加粗
+font-weight: bold;
+15、字体正常
+font-weight: normal;
+16、文字换行
+word-wrap:break-word;
+word-break:break-all;
+17、图片显示样式
+object-fit: contain;   =缩放显示，适应父布局大小，不裁切
+object-fit: fill;  =完全显示到父布局会有变形，没有裁切。
+object-fit: cover; =完全显示到布局，会有裁切
+object-fit: none; =原始尺寸，不变化
+18、宽高
+px：固定数值，例如：300px表示3000像素
+rem：相对于根元素(即html元素)font-size计算值的倍数，1em与当前元素的字体大小相同，浏览器给网页设置的默认基础字体大小是16像素，即一个元素来说1em的计算值默认为16像素。但是要em单位是会继承父元素的字体大小，所以如果在父元素上设置了不同的字体大小，也会跟随者变化。
+100%：表示设置百分比单位。
+vh：视窗高度的百分比（ 1vh 代表视窗的高度为 1%）
+vw： 视窗宽度的百分比（1vw 代表视窗的宽度为 1%）
+vmin：当前 vw 和 vh 中较小的一个值
+vmax：当前 vw 和 vh 中较大的一个值
+19、z-index
+z-index表示谁压着谁。数值大的压盖住数值小的。
+只有定位了的元素才能有z-index值，不管是相对、绝对、固定定位都可以使用z-index值，而浮动的东西不能用。
+如果都没有z-index值，谁写在后面谁盖住谁。
+z-index没有单位，是一个正整数。默认的z-index值是0。
+20、元素是否可见
+ opacity: .5;透明度1-0，空间不消失。
+ visibility: hidden;隐藏元素，保留空间，和opacity: 0;一样。
+ visibility: visible;元素可见，默认。
+21、背景固定，内容滑动
+background-attachment: fixed;
+position: sticky; 和fixed类似，区别在于，如果元素位置不在文档流最顶层，滑动时候会跟随滑动，然后到顶部时候固定，类似Android的TitlBar粘性布局效果。
+*/
+.topBar{
+    width: 100%;
+    height: 40px;
+    background-color:#333;
+    position: relative;
+    z-index: 30;
+}
+.container{
+    width: 1226px;
+    height: 100%;
+   margin: 0 auto;
+
+}
+.topBar .topBar_list{
+float: left;
+}
+.topBar .login{
+float: right;
+}
+.topBar .shop{ /*有浮动在最右边 其余的会按顺序也浮动在右侧*/
+float:right;
+line-height: 40px;
+height: 40px;
+text-align:center;
+background-color: #424242;
+width: 120px;
+margin-left: 15px;/*和左边文字离得太近*/
+
+}
+.topBar a{/*因为list login shop元素下的a标签使用的字体等都是一样的所以
+    要在他们共同的父标签去设置 因为container不仅在顶部布局中使用到
+    在脚部 内容 导航栏中也有使用这里设置了会影响其他栏的样 布局*/
+color: #b0b0b0;
+font-size: 12px;
+display: inline-block; /*因为不仅鼠标放在文字上显示小手的鼠标样式
+点在下面上面也显示，说明文字是一个行列块（inline-block）*/
+line-height: 40px;/*设置行列块和topbar的高度一致*/
+}
+.topBar span{
+    margin: auto;
+    color: #424242;
+    margin: 0 .3em;
+}
+.topBar.shop a{
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+ 
+}
+.topBar a:hover{
+    color: white;
+}
+.tooltip{
+   border-bottom: 1px dotted black;
+}
+ .tooltiptext {
+  visibility:collapse;
+    width: 120px;
+    height: 150px;
+    background-color: white;
+    color:black;
+    text-align: center;
+ 
+    /* 定位 */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover.tooltiptext {
+    visibility: visible;
+}
