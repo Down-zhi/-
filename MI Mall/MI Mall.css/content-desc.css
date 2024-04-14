@@ -4,100 +4,130 @@ body{/*直接官网上打开开发者模式直接去看元素的宽高等*/
    background-color: #fff;
    min-width: 1226px;
 }
-.content-desc .container{
+.content-desc 
+{
     width: 100%;
     height: 5872px;
    margin: 0 auto;
    margin-top: 20px;
    background-color: #f5f5f5;
-   min-width: 1226px;
-   padding: 4px 0 12px;
-   overflow: hidden;
+
+   position: relative;
+}
+.container{
+    width: 1226px;
+    height: 100%;
+   margin: 0 auto;
+
 }
 /* banner */
-.content-desc.content-banner{
+.content-banner{
     margin-top: 18px;
     height: 120px;
+
 }
-.content-desc.content-banner a{
+.content-banner a img{
     width: 1226px;
     height: 120px;
-    
+ 
+}
+.content-desc .box{
+   margin-top: 20px;
+    position: relative;
+    height: 58px;
 }
 .content-desc .box .phone{
-position: relative;
-left: 123px;
-top:-16px;
-    color: black;
-    display: inline-block;
+float: left;
+margin: 0;
+font-size: 22px;
+font-weight: 200;
+line-height: 58px;
+color: #333;
 }
 .content-desc .more{
     position: relative;
     float: right;
-    right: 123px;
     color: black;
-    font-size: large;
+    font-weight: 200;
+    line-height: 58px;
     cursor: pointer;
 }
 .content-desc .more:hover{
     color: orange;
 }
+
+/* 右边的手机详情页 */
 .content-desc .box-bd{
     width: 100%;
     height: 614px;
 }
+
 .content-desc .box-bd .row .row-l a img{
     float: left;
     height: 614px;
     width: 234px;
-    position: relative;
-    left:123px;
-    top:-12px;
+    
 }
+
 .content-desc .box-bd .row .row-r{
+    width: 978px;
+
+    float: left;
+
+    margin-left: 14px;
+    min-height: 1px;
+}
+.content-desc .box-bd .row .row-r ul{
+    margin: 0 0 -14px -14px;
     width: 992px;
     height: 614px;
-    float: left;
-    position: relative;
-    display: block;
-
+    list-style-type: none;
 }
-.figure{
-    width: 234px;
+.content-desc .box-bd .row .row-r ul li{
     height: 300px;
-    margin: 0 0 14px 14px ;
-    padding: 20px 0;
-    background-color: white;
-    box-sizing: border-box;
-   position: absolute;
-   left: 125px;
-   top:-13px;
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 234px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+   background-color: #fff;
+    /* display: list-item; :list-item为元素内容生成一个块型盒,随后再生成一个列表型的行内盒。 list-item将多个元素作为列表来显示 */
+}
+.content-desc .box-bd .row .row-r ul li>a{
+display: block;
+height: 100%;
+box-sizing: border-box;
+padding: 20px 0;
+}
+.content-desc .box-bd .row .row-r ul li a .figure{
+    margin: 0 auto 18px;
+    width: 160px ;
+    height:160px ;
 
 }
-.figure:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(0,0,0, 1);
+.content-desc .box-bd .row .row-r ul li a:hover{
+    z-index: 2;
+    -webkit-box-shadow: 0 15px 30px rgba(0,0,0,.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -2px, 0);
 }
-.figure a{
-    text-align: center;
-}
- .figure a img {
-  width: 160px ;
+
+.content-desc .box-bd .row .row-r ul li a div.figure img {
+ width: 160px ;
 height:160px ;
 line-height: 160px;
-display: inline-block; 
-vertical-align: middle;
-
 }
-.figure a h3{
-    width: 214px ;
-    height: 21px;
+.content-desc .box-bd .row .row-r ul li a h3{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
     color: #333;
-   line-height: 21px;
-   margin: 0 auto 2px;
-
+   margin: 0 10px 2px;
+   overflow: hidden;
 }
-.figure .up{
+.content-desc .box-bd .row .row-r ul li a .up{
     width: 214px ;
     height: 18px;
     color: #b0b0b0;
@@ -105,11 +135,51 @@ vertical-align: middle;
      line-height:18px ;
   margin: 0 8px ;
 }
-.figure .down{
+.content-desc .box-bd .row .row-r ul li a .down{
     color: #ff6700;
     font-size: 14px;
+    text-align:center;
 }
 
+/* 把一个li分成两个小的li */
+.content-desc .box-bd .row .row-r ul li.small-li{
+    height: 93px;
+    padding-top: 50px;
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 234px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+    background: #fff;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.content-desc .box-bd .row .row-r ul li.small-li .none{
+ 
+    color: #757575;
+  
+}
+
+.content-desc .box-bd .row .row-r ul li.small-li  img{
+    position: absolute;
+    right: 20px;
+    top: 32px;
+    width: 80px;
+    height: 80px;
+}
+.content-desc .box-bd .row .row-r ul li.small-li a .small-up{
+    margin: -10px 110px 5px 30px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.content-desc .box-bd .row .row-r ul li.small-li a .small-down{
+
+    color: #ff6700;
+    position: absolute;
+    left: 50px;
+}
 /* .copy{
     width: 234px;
     height: 300px;

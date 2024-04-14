@@ -83,7 +83,7 @@ position: sticky; 和fixed类似，区别在于，如果元素位置不在文档
     height: 40px;
     background-color:#333;
     position: relative;
-    z-index: 30;
+   
 }
 .container{
     width: 1226px;

@@ -1,0 +1,76 @@
+/* html中的class ccs里用. 例如class=name ，css中用.name选中所有class为name的标签
+    html中id 在ccs中用#
+      :要用英文的,中文的是错误的*/
+/*  css 中通常有以下构成  选择器 声明（每个声明包含属性和值 属性：值；）*/
+#title1 {
+    text-align: center;
+    background-color: antiquewhite;
+    color: #000;
+}
+
+.title2 {
+    text-align: center;
+    color: aquamarine;
+}
+
+/*不要在属性值与单位之间留有空格（如："margin-left: 20 px" ），正确的写法是 "margin-left: 20px" 。
+        一般情况： （内联样式）Inline style > （内部样式）Internal style sheet >（外部样式）External style sheet > 浏览器默认样式*/
+div {
+    background-color: bisque;
+}
+
+div p {
+    background-color: blue;
+    text-align: center;
+    text-decoration: overline dashed;
+    direction: ltr;
+    letter-spacing: normal;
+
+    text-indent: 1%;
+    word-spacing: 4cm;
+    text-shadow: 2px 2px firebrick;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 1.875em;
+    font-weight:normal                           ;
+}
+
+/*  text-align 文本的对其方式\
+          text-decoration 文本上划线还是下划线\
+              text-transform  文本转换大小写 首字母大写等
+              direction 文本书写方向
+              word-spacing字间距
+              font-family 设置文本字体 字体超过一个字或词就要带引号,不同字体用,隔开 ;可以有备用字体     
+              text-shadow: h-shadow v-shadow blur color;
+              代表水平阴影位置 ,垂直阴影位置,模糊的距离(可选) 颜色
+              字体默认大小为16px=1em */
+
+body {
+    background: url() no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* 当简写已下属性时,顺序为
+        background-color
+background-image
+background-repeat
+background-attachment
+background-position*/
+a:link{
+    color: #000000; text-decoration: none;display: block;padding: 4px;
+}
+a:visited{color:green;background-color: rgb(206, 16, 16);display: block;padding: 4px; }
+a:hover{color: blue;text-decoration: underline; font-size: 150%;background-color: blanchedalmond;font-family: Georgia; font-style: italic;}
+a:active{color: red;}    
+/* 我在visited中加入的backgroundcolor属性没有显示是因为我在前面的link里面有加入这个属性*/
+caption{
+    caption-side:top;
+}
+/*  caption-side属性是在表格的什么部位  */
+div.box{
+    width: 220px;
+    border:5px solid gray;
+    margin: 0;
+    padding: 10px;
+}

@@ -88,52 +88,65 @@ font-size: 16px;
 /* 6个小内容的地方 */
 .content-sub{
 margin-top: 18px;
-overflow: hidden;
+width: 1226px;
+height: 170px;
+
+
 }
 .content-sub .content-channel{
-    float: left;
     width: 234px;
-    padding: 3px;
+    height: 170px;
+    float: left;
+   
+    /* width: 234px;
+    padding: 3px; */
+}
+.content-sub .content-channel ul{
+    width: 234px;
+    height: 170px;
+    margin: 0;
+    list-style-type: none;
+    font-size: 12px;
+    text-align: center;
+    background: #5f5750;
+
 }
 
-.content-sub .content-channel ol li{
-width: 33%;
-float: left;
-height: 85px;
-}
-.content-sub.content-channel ol li a{
+.content-sub .content-channel ul li{
+    position: relative;
+    float: left;
 width: 70px;
-height: 64px;
-padding: 18px 0 0;
+height: 82px;
+padding:0 3px;
+display: list-item;
+}
+.content-channel ul li a{
+    display: block;
+ text-align: center;
+padding-top: 18px;
 color: white;
 opacity: 0.7;
+transition: opacity .2s;
 }
-.content-sub.content-channel ol li a:hover{
-    text-decoration: none;
-}
-.content-sub.content-channel ol li a i{
+
+ .content-channel ul li a i{
     display: block;
     width: 24px;
     height: 24px;
     margin: 0 23px 4px ;
 }
+
+
 /* 右侧三个图片 */
 .content-sub.content-list{
     float: left;
     width: 992px;
 }
-.content-sub.content-list ol{                                                                             
-    width: 100%;
-}
-.content-sub.content-list ol li{
-    float:left;
-    width: 33.33%;
-    height: 170px;
-    text-align: right;
-}
-.content-sub.content-list ol li img{
+.content-sub .content-list .list-img
+{   float: left;
     width: 316px;
     height: 170px;
+    margin-left: 14px;
 }
 
 

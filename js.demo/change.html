@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <script>
+//         变量必须以字母开头
+// 变量也能以 $ 和 _ 符号开头（不过我们不推荐这么做
+//变量名称对大小写敏感（y 和 Y 是不同的变量）
+//	一个好的编程习惯是，在代码开始处，统一对需要的变量进行声明
+/* 一条语句中声明的多个变量不可以同时赋同一个值:
+ var x,y,z=1; 
+ x,y 为 undefined， z 为 1。*/
+//  JavaScript 数据类型
+// 值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、空（Null）、未定义（Undefined）、Symbol。
+
+// 引用数据类型（对象类型）：对象(Object)、数组(Array)、函数(Function)，还有两个特殊的对象：正则（RegExp）和日期（Date）。
+    typeof"null";
+    let obj = new Object("some text");
+console.log(obj instanceof String);
+    </script>
+
+</head>
+<body>
+    变量的数据类型可以使用 typeof 操作符来查看： 
+typeof "John"            // 返回 string
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素节点的crud</title>
+    <style>
+        .active{
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="active"> ikun  </p>
+        <!-- <p> gcz</p> -->
+    </div>
+   <!-- 动态的操作节点
+   1.创建节点 createElement（）
+   2.插入节点  appendChild（）
+                   insertBefore（newNode，node）
+   3.删除节点 removeChild（）
+   4.替换节点replaceChild（newNode，node）
+   5.创建文本节点 createTextNode（） -->
+
+<script>
+    var div=document.getElementById('box'); 
+     var newp=  document.createElement('p');
+     var newp2=  document.createElement('p');//创建一个新节点
+     var newp3=  document.createElement('p');
+
+     newp.innerHTML='<a href="#"> guochengzhishuaige </a>'; //也可以直接这样在里面添加文字 更快 而且可以渲染页面
+      newp2.innerHTML='<a href="#">要删除的</a>'; //也可以直接这样在里面添加文字 更快 而且可以渲染页面
+     newp3.innerHTML='百度一下';
+     div.appendChild(newp);//把他插入到id=box的节点里
+     div.appendChild(newp2);
+  
+     newp.setAttribute('class','active'); //给新的节点加class=active、
+      
+      
+      var textNode=document.createTextNode('gcz');//创建文本节点 就是在加的p里面写文字
+      newp.appendChild(textNode);//把文本节点加到nwep里
+     
+
+
+      //删除newp2
+    //   div.removeChild(newp2); 
+    //   替换newp
+    div.replaceChild(newp3,newp2);
+      
+</script>
+
+</body>
+</html>
