@@ -129,22 +129,41 @@ line-height: 40px;/*设置行列块和topbar的高度一致*/
 }
 .topBar a:hover{
     color: white;
+
 }
-.tooltip{
-   border-bottom: 1px dotted black;
+.topBar .topBar_list .erweima{
+    border: 1px solid black;
+    visibility: hidden;;
 }
- .tooltiptext {
-  visibility:collapse;
+.topBar .topBar_list .img-ma{
+    text-decoration: none;
+}
+.img-ma:hover .erweima{
+    visibility: visible;
+}
+
+
+.topBar .shop a.tooltip{
     width: 120px;
-    height: 150px;
-    background-color: white;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+    right:140px;
+    width: 120px;
+
+}
+.topBar .shop .tooltiptext {
+    visibility: hidden;
+    float: right;
+  width: 310px;
+   
+    height: 100px;
+    background-color:bisque;
     color:black;
     text-align: center;
- 
     /* 定位 */
-    position: absolute;
-    z-index: 1;
+   
 }
-.tooltip:hover.tooltiptext {
+.tooltip:hover .tooltiptext {
     visibility: visible;
 }

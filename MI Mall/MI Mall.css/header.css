@@ -13,6 +13,7 @@
     width: 62px; 
     margin-top: 22px;
 }
+
 .header .header-list{
     float: left;
     width: 850px;
@@ -23,11 +24,15 @@
     padding: 12px 0 0 30px;
     font-size: 16px;
 }
-.header .header-list img{
-    width: 127px;height: 88px;
+.header .header-list .new{
+    width: 150px;
+    height: 100px;
     padding: 0px 15px 0px 0px; 
     float: left;
-    text-decoration: none;
+    background: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5753140bf0e98605d7d3fc7a6c3cc740.gif?w=165&h=55);
+    background-repeat: no-repeat;
+    background-position: 50%;
+
 
 }
 .header .header-list ul li{

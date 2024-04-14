@@ -6,23 +6,78 @@
 .site-content .site-Carousel{
     position: relative;
 }
+.swiper-wrap {
+
+    width: 1226px;
+    height: 460px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.swiper-items {
+    display: flex;
+    height: 460px;
+    transition: all 1s;
+    transform: translateX(-1226px);
+}
+
+.swiper-item {
+    width: 1226px;
+    height: 460px;
+
+    img {
+        width: 1226px;
+        height: 460px;
+    }
+}
+ #left{
+    background: url('https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png') no-repeat -84px 50%;
+    left: 234px;
+    right: auto;
+    position: absolute;
+    top: 50%;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+    cursor: pointer;
+
+}
+ #right{
+    background: url("https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png") no-repeat -125px 50%;
+    right: 0;
+    left: auto;
+    position: absolute;
+    top: 50%;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+    cursor: pointer;
+
+}
+#left:hover{
+    background-position: 0 50%;
+}
+#right:hover{
+    background-position: -42px 50%;
+}
 .site-content .site-Carousel a{
     display: block;
     width: 204px;
     height: 460px;
     position: relative;
 }
-.site-content .site-Carousel .hidden{
+/* 鼠标悬浮出来的东西 */
+.site-content .site-Carousel div.hidden{
 visibility: hidden;
-width: 234px;
-height: 458px;
-background-color:lightgoldenrodyellow;
+width: 500px;
+height: 460px;
+background-color:#fff;
 position: absolute;
-top:-18px;
+top:-20px;
 left: 234px;
 color: black;
 }
-.site-content .site-Carousel a:hover tt.hidden{
+.site-content .site-Carousel a:hover div.hidden{
     visibility: visible;
 }
 

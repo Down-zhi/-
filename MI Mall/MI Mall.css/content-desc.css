@@ -7,7 +7,7 @@ body{/*直接官网上打开开发者模式直接去看元素的宽高等*/
 .content-desc 
 {
     width: 100%;
-    height: 5872px;
+    height:1700px;
    margin: 0 auto;
    margin-top: 20px;
    background-color: #f5f5f5;
@@ -152,22 +152,25 @@ line-height: 160px;
     margin-left: 14px;
     margin-bottom: 14px;
     background: #fff;
-    -webkit-transition: all .2s linear;
-    transition: all .2s linear;
+   
 }
 
 .content-desc .box-bd .row .row-r ul li.small-li .none{
  
     color: #757575;
+    position: relative;
   
 }
 
 .content-desc .box-bd .row .row-r ul li.small-li  img{
-    position: absolute;
-    right: 20px;
-    top: 32px;
+float: right;
+position:absolute;
+left: 130px;
+top:-10px;
+line-height: 80px;
     width: 80px;
     height: 80px;
+ 
 }
 .content-desc .box-bd .row .row-r ul li.small-li a .small-up{
     margin: -10px 110px 5px 30px;
