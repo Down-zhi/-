@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- <script>
+        window.setTimeout(
+            function(){
+            console.log('gcz');
+        } 
+        // 两个参数一个包含js代码的字符串或者一个函数
+       , 1000 )  
+    //    第二个参数是时间 单位是毫秒
+    </script> -->
+    <script>
+        var num=0;
+        var time= setInterval (
+            function(){
+                num++;
+                if (num>6){
+                    clearInterval(time);
+                    return;  //如果这里不用retuen num=6时会停止但是 console还是会执行到num=7
+                }
+                console.log('num:'+num);
+            },1000
+        )
+    </script>
+    <!-- 每隔一秒加1显示在控制台  当大于6时清除计时器效果-->
+</body>
+</html>

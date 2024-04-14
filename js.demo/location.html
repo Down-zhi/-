@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浏览器位置操作</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 2秒之后跳转到lol官网页面
+        console.log('ikun')
+
+        setTimeout(function (){
+            // location.href='https://lol.qq.com/main.shtml';  //点击后退会回到原先的页面
+            location.assign('https://lol.qq.com/main.shtml');
+            // location.replace=('https://lol.qq.com/main.shtml');//后退不会回到原先的网页而是一个新标签页
+            // location.reload();//页面会自己刷新
+                },2000)
+    </script>
+</body>
+</html>

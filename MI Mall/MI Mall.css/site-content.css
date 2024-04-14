@@ -1,0 +1,212 @@
+.container{
+    width: 1226px;
+    height: 100%;
+   margin: 0 auto;
+}
+.site-content .site-Carousel{
+    position: relative;
+}
+.swiper-wrap {
+
+    width: 1226px;
+    height: 460px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.swiper-items {
+    display: flex;
+    height: 460px;
+    transition: all 1s;
+    transform: translateX(-1226px);
+}
+
+.swiper-item {
+    width: 1226px;
+    height: 460px;
+
+    img {
+        width: 1226px;
+        height: 460px;
+    }
+}
+ #left{
+    background: url('https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png') no-repeat -84px 50%;
+    left: 234px;
+    right: auto;
+    position: absolute;
+    top: 50%;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+    cursor: pointer;
+
+}
+ #right{
+    background: url("https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png") no-repeat -125px 50%;
+    right: 0;
+    left: auto;
+    position: absolute;
+    top: 50%;
+    width: 41px;
+    height: 69px;
+    margin-top: -35px;
+    cursor: pointer;
+
+}
+#left:hover{
+    background-position: 0 50%;
+}
+#right:hover{
+    background-position: -42px 50%;
+}
+.site-content .site-Carousel a{
+    display: block;
+    width: 204px;
+    height: 460px;
+    position: relative;
+}
+/* 鼠标悬浮出来的东西 */
+.site-content .site-Carousel div.hidden{
+visibility: hidden;
+width: 500px;
+height: 460px;
+background-color:#fff;
+position: absolute;
+top:-20px;
+left: 234px;
+color: black;
+}
+.site-content .site-Carousel a:hover div.hidden{
+    visibility: visible;
+}
+
+/* 轮播图  父元素要相对定位子元素才能绝对定位*/
+.site-content .site-Carousel>p{
+width: 41px;
+height: 69px;
+background:url("/images/icon-slides.png");
+}
+.site-content .site-Carousel p.prev{
+    background-position: -82px 0;;
+}
+.site-content .site-Carousel  p.next{
+    background-position: -123px 0;;
+    right: 0;
+    background-image: url("/images/icon-slides.png");
+}
+.site-content .site-Carousel a img{
+    display: block;
+    width: 1226px;
+    height: 460px;
+    position: relative;
+    z-index:-1;
+}
+.site-content .site-Carousel .Carousel-list{
+    position: absolute;
+    top: 0px;
+
+}
+.site-content .site-Carousel .Carousel-list ul{
+padding: 20px 0;
+background: rgba(105, 101, 101, .6);
+width: 234px;
+
+}
+.site-content .site-Carousel .Carousel-list ul li{
+height: 42px;
+
+
+}
+.site-content .site-Carousel .Carousel-list ul li a{
+    color: white;
+    padding-left: 30px;
+    padding-top: 14px;
+     display: block;
+   height: 28px;
+   font-size: 14px;
+   position: relative;
+}
+.site-content .site-Carousel .Carousel-list ul li:hover{
+    background-color :#ff6700; 
+}
+.site-content .site-Carousel .Carousel-list ul li span{
+position: absolute;
+left:200px;
+top: 12px;
+float: right;
+color:aliceblue;
+display: block;
+height: 42px;
+font-size: 16px;
+}
+/* 6个小内容的地方 */
+.content-sub{
+margin-top: 18px;
+width: 1226px;
+height: 170px;
+
+
+}
+.content-sub .content-channel{
+    width: 234px;
+    height: 170px;
+    float: left;
+   
+    /* width: 234px;
+    padding: 3px; */
+}
+.content-sub .content-channel ul{
+    width: 234px;
+    height: 170px;
+    margin: 0;
+    list-style-type: none;
+    font-size: 12px;
+    text-align: center;
+    background: #5f5750;
+
+}
+
+.content-sub .content-channel ul li{
+    position: relative;
+    float: left;
+width: 70px;
+height: 82px;
+padding:0 3px;
+display: list-item;
+}
+.content-channel ul li a{
+    display: block;
+ text-align: center;
+padding-top: 18px;
+color: white;
+opacity: 0.7;
+transition: opacity .2s;
+}
+
+ .content-channel ul li a i{
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 23px 4px ;
+}
+
+
+/* 右侧三个图片 */
+.content-sub.content-list{
+    float: left;
+    width: 992px;
+}
+.content-sub .content-list .list-img
+{   float: left;
+    width: 316px;
+    height: 170px;
+    margin-left: 14px;
+}
+
+
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
+}

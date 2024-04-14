@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" title="我是文本">我是文本节点 <!--注释 --></div>
+    <img src="C:\Users\12659\Pictures\联想截图\联想截图_20240412171728.png" alt="">
+    <img src="C:\Users\12659\Pictures\联想截图\联想截图_20240412171749.png" alt="">
+    <!-- 节点对象的其他属性 -->
+    <div id="father">
+        <p> ikun</p>
+        <p>gcz</p>
+    </div><div> 我是兄弟标签</div>
+
+    <script>
+    // 获取元素节点
+        var Div=document.getElementById('box');
+        console.log(Div.nodeName);
+        console.log(Div.nodeValue);
+        console.log(Div.nodeType);
+//    获取属性节点
+var attrNode=Div.attributes[0];
+        console.log(attrNode.nodeName);
+        console.log(attrNode.nodeValue);
+        console.log(attrNode.nodeType);
+        // 获取文本节点
+        var textNode=Div.childNodes[0];
+        console.log(textNode.nodeName);
+        console.log(textNode.nodeValue);
+        console.log(textNode.nodeType);
+        // 获取注释节点
+        var commentNode=Div.childNodes[1];
+        console.log(commentNode.nodeName+'|'+commentNode.nodeValue+'|'+commentNode.nodeType);
+
+
+        // 节点的孩子属性
+        var OFather=document.getElementById('father');
+        console.log(OFather.childNodes[0]);
+        console.log(OFather.childNodes); //div标签下面不仅有p标签还有文本标签
+        console.log(OFather.nextSibling); //下一个兄弟标签
+
+        // 因为getchildnode时不仅会有p标签还有文本标签（空白的），构造一个函数
+        function get_childNodes(fatherNode){
+              var nodes=fatherNode.childNodes;
+           var arr=[];//保存已获取的元素节点
+
+              for(var i=0; i<nodes.length;i++){
+                if(nodes[i].nodeType===1){
+                    arr.push(nodes[i]);
+                }
+              }
+              return arr;
+        }
+        var childNodes=get_childNodes(OFather);
+        console.log(childNodes[0]);     //用函数求第一个不是文本节点的p节点
+    </script>
+</body>
+</html>

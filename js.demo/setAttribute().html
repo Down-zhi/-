@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>获取属性和设置属性</h2>
+    <p title="你要干啥吗">llala</p>
+
+    <script>
+         var oP = document.getElementsByTagName('p')[0];
+         var ob=oP.getAttribute('title');
+            console.log(ob);
+
+
+
+            oP.setAttribute('id','box');
+    </script>
+</body>
+</html>

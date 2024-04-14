@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #f12;
+        }
+        img{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"> 
+
+    </div>
+    <img src="C:\Users\12659\Pictures\联想截图\联想截图_20240412192631.png" alt="">
+    <!--  点击改变颜色 -->
+   <!-- <script>
+
+   
+        var div=document.getElementById('box');
+      
+      var isred=true;
+        div.onclick=function(){
+            // alert('事件被触发了');
+            // this指向当前元素节点div
+            if(isred){
+                this.style.backgroundColor='blue';
+                isred=false;
+
+            }else{
+                this.style.backgroundColor='red';
+                isred=true;
+            }
+            
+        }
+        // 或者这样写  
+        // function add(){
+        //     alert('事件出发啦')
+        // }
+        // div.onclick=add;
+    </script> -->
+     <!-- 鼠标悬浮 -->
+    <script> 
+    //1找开关 （找到触发的事件对象）  2.按一下 （写事件）3.灯亮 （事件处理）
+     var div=document.getElementById('box');//1找到对象
+      div.onmouseover=function(){
+        this.style.backgroundColor='green'; 
+      }  //鼠标滑过
+      div.onmouseout=function(){
+        this.style.backgroundColor='blue'; 
+      }//鼠标离开
+    </script>
+</body>
+</html>

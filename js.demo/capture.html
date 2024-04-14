@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+       background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box=document.getElementById('box');
+        //dom2事件处理程序      使用removeEventlistener()移除定义的方法 传入的参数要和add的一样 
+        box.addEventListener('click',()=>{ console.log(this.id)}
+        ,false);    //为flase 则是事件冒泡  ture是事件捕获
+        var box=document.getElementById('box');
+        box.addEventListener('click',()=>{ console.log('hello world!')}
+        ,false);   
+        // IE处理程序  
+        box.attachEvent('onclick',()=>{console.log('Clicked')});
+    </script>
+</body>
+</html>
