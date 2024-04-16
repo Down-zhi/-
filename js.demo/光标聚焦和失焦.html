@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color:blue;
+        }
+        div{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+    <form action="">
+        <p class="name">
+            <label for="username">用户名</label>
+            <input type="text" id="username">
+        </p>
+        <p class="pwd">
+            <label for="password">密码</label>
+            <input type="text" id="password">
+        </p>
+       <input id="submit" type="submit" onclick="text()" name="">
+    </form>
+</div>
+
+<textarea name="" id="" cols="30" rows="10">请输入内容（当内容被选中时会打印）</textarea>
+</body>
+<script>
+let username=document.getElementById('username');
+let node=document.createElement('span')
+//聚焦
+username.onfocus= ()=>{
+node.innerText='请输入用户名'
+username.parentNode.appendChild(node)
+}
+//失焦
+username.onblur= ()=>{
+node.innerText='请确认格式是否正确'
+username.parentNode.appendChild(node)
+}
+
+function text(){
+let respone= confirm('需要保存密码吗');
+if(respone){
+    // var styles = window.getComputedStyle(window);
+    let div=document.getElementById('div')
+    div.style.backgroundColor='green'
+}else{
+    document.body.style.backgroundColor='red'
+}
+}
+//内容改变和内容选择触发的事件
+let textarea=document.querySelector('textarea')
+textarea.onselect=()=>{
+    console.log('内容被选中')
+}
+textarea.onchange=()=>{
+    console.log('内容被改变')
+}
+textarea.oninput=()=>{
+    console.log('内容被实时改变');
+    console.log(textarea.value);
+    console.log(this==window)//这个时候的this等于window所有打印this的值不是textarea的值
+}
+</script>
+</html>

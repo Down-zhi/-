@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>用querySelector方法取得body 和img如果没有返回null</h2>
+    <div id="mydiv" class="user">
+        <em>第一个 </em>
+        <em>第二个</em>
+        <em></em>
+    </div>
+    <a href="">啦啦啦 </a>
+    <script>
+        let body = document.querySelector('body');
+        let img = document.querySelector('img.button');
+        console.log(body)
+        console.log(img)
+
+        let h2 = body.querySelector('h2')   //在元素上使用querySelector方法会从元素的后代上找
+        console.log(h2)
+
+
+        let ems = document.getElementById('mydiv').querySelectorAll('em');
+        console.log(ems)//querySelectorAll取得的元素返回所有匹配节点不止一个 返回的是nodelist的静态实例
+        //nodelist对象是一个类似数组的对象，它的成员是节点对象
+        let em = document.getElementById('mydiv').querySelector('em');
+        console.log(em)
+
+        if (document.body.matches('body.h2')) {
+            console.log(h2)
+        }
+        console.log('----------------------------------------')
+        //遍历
+        let div = document.getElementById('mydiv');
+        let current = div.firstElementChild;
+        while (current) {
+            console.log(current)
+            if (current === div.lastElementChild) {
+                break;
+            }
+            current = current.nextElementSibling;
+        }
+        //为div删除class=user的类名
+        div.classList.remove('user') 
+        div.classList.add('current');
+        let divuser = document.getElementsByClassName('user')
+        console.log(divuser)
+        let divcurrent = document.getElementsByClassName('current')
+        console.log(divcurrent)
+        //HTMLDocument扩展 
+    if(document.readyState =='complete'){  //readystate判断文档是否加载完毕
+        console.log('complete')
+    }
+    else{
+        console.log('loading')
+    }
+    //compatMode判断当前文档属于什么渲染模式
+    if (document.compatMode=='CSS1Compat'){
+        console.log('标准模式');
+    }else{
+        console.log('混杂模式');
+    }
+    //contains确定一个元素是不是另一个元素的后代
+    console.log(document.documentElement.contains(document.body));
+   //使用innerText会移除之前的后代节点 、
+   div.innerText='Hello !';//div下面的em标签没有了 被覆盖了
+ //outerText 不止会移除后代节点，而是代替整个元素
+    </script>
+</body>
+
+</html>

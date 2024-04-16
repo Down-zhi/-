@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       // 如果不设置定时器会报错 加载页面会从上往下 还没获取到div就触发click事件了
+        // setTimeout(() => {
+        //     let div=document.getElementById('box');
+        //     div.onclick=()=>{
+        //         console.log(this)
+        //         div.innerHTML='不好'
+        //     }
+        // }, 0);  
+    
+      window.onload=function(){
+        let div=document.getElementById('box');
+        div.onclick=()=>{
+        console.log(this)
+        div.innerHTML='不好'
+      }
+    }//等待元素加载完成才调用onload()
+
+    window.onload=function(){
+        console.log(1111)
+    }//onload会覆盖之前的就不能用了
+    </script>
+</head>
+<body>
+    <div id="box">你好</div>
+</body>
+</html>

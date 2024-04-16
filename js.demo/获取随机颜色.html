@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body> 
+<p></p>
+<button onclick="location.reload()">点我</button>
+<script>
+        //获取min-max之间的随机整数
+        function random(max, min) {
+            return Math.floor(Math.random() * (max - min) + min);
+        };
+        console.log(random(1, 100))
+        //获取随机颜色
+        function randomColor() {
+            let r = random(0, 256), g = random(0, 256), b = random(0, 256);
+            let result = `rgb(${r},${g},${b})`;
+            return result;
+        }
+        let color = randomColor();
+        console.log(color);
+        //随机设置背景颜色
+        document.body.style.backgroundColor=color;
+
+        let pElement = document.querySelector('p');
+        pElement.style.backgroundColor=randomColor();
+
+        //获取随机验证码  四位：数字+大写字母
+        function creatCode(){
+        let code=''
+        let codeLength=4;
+        let randomCode=[0,1,2,3,4,5,6,7,8,9,'A','B','C','D'];
+     
+        for (let i=0;i<codeLength;i++){
+            let index=random(0,14)
+            code+=randomCode[index];
+        }
+        return code;
+    }
+      document.write(`<p>${creatCode()}</P>`)
+    </script>
+</body>
+
+</html>

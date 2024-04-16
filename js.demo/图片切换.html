@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+        }
+      .buts{
+        text-align: center;
+        padding-top:600px;
+      }
+    </style>
+</head>
+<body>
+    <img src="../Mi-Mall/images/Carousel2.webp" id="img" width="1226px" height="460px" alt="">
+    <br>
+<div class="buts">
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+    <button id="hidden">隐藏</button>
+
+</div> 
+<script>
+    //切换上下页
+    let img=document.getElementById('img');
+    let prevBtn=document.getElementById('prev')
+    let nextBtn=document.getElementById('next');
+    let minindex=2,maxindex=6,currentindex=minindex;
+    nextBtn.onclick=()=>{
+        currentindex++;
+        img.setAttribute('src',`../Mi-Mall/images/Carousel${currentindex}.webp`);
+        if(currentindex===maxindex){
+            currentindex=minindex;
+        }   
+    }
+
+    prevBtn.onclick=()=>{
+        if(currentindex===minindex){
+            currentindex=maxindex;
+        }else{
+            currentindex--;
+        }
+        console.log(currentindex)
+        img.setAttribute('src',`../Mi-Mall/images/Carousel${currentindex}.webp`)
+     
+    }
+
+ //隐藏和显示
+ let hidden=document.getElementById('hidden');//找事件源
+ let newimg=document.getElementById('img')
+
+ hidden.onclick=()=>{                         //绑定事件
+        
+         if(hidden.innerHTML==='隐藏'){
+         newimg.style.display='none' ;        //事件驱动
+          hidden.innerHTML='显示';
+        
+         }else{
+            newimg.style.display='block' ; 
+            hidden.innerHTML='隐藏'
+          
+         }
+ } 
+</script>
+</body>
+</html>
