@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" placeholder="请输入">
+  <button> 保存</button>
+  <script>
+    //当在输入框输入 存储时这个监听事件不会触发，而本地存储.html会触发监听storage事件
+    (function (D) {
+      var val = D.getElementsByTagName("input")[0],
+        btn = D.getElementsByTagName("button")[0];
+      btn.onclick = function () {
+        var value = val.value;
+        if (!value) return;
+        localStorage.setItem("key", val.value);
+      };
+      window.addEventListener("storage", function (e) {
+        console.log(e);
+      });
+    })
+      (document);
+    //多窗口间多通信用到它就是最好选择了，
+    //比如某块公用内容区域基础数据部分都是从store中提取的，这个区域中大多数页面中都有，
+    //当用户打开多个页面时，在其中一个页面做了数据修改，那其他页面同步更新
+  </script>
+</body>
+
+</html>

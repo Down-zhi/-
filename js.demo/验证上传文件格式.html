@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label>上传图片格式验证：</label>
+  <input type="file" id="file">
+  <img id="div" src="" alt="">
+  <script>
+    function $(id) {
+      return typeof id == 'string' ? document.getElementById(id) : null;
+    }
+    $('file').onchange = function (e) {                     //箭头函数的this指向不是当前作用域
+      //获取上传图片的文件路径
+      let path = this.value;
+      //从后获取.在文件中的位置
+      let local = path.lastIndexOf('.');
+      //获取.后面的后缀名
+      let Suffix = path.substr(local);
+      //转小写
+      let lower = Suffix.toLowerCase();
+      if (lower == '.jpg' || lower == '.png' || lower == '.jpeg' || lower == '.gif') {
+        alert('上传图片格式正确')
+        //将图片展示到页面 FileReader的readAsDataURL方法读取文件数据，这会将图片转换为Base64编码的字符串。
+        var file = e.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          $('div').src = e.target.result;//e.target =this
+        };
+        reader.readAsDataURL(file);
+        // $('div').style.background=`url('${this.result}')`
+        console.log('图片');
+      } else {
+        alert('上传图片格式不正确，请重新上传')
+      }
+
+    }
+  </script>
+</body>
+
+</html>

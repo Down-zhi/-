@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let book = {
+            title: 'office js',
+            edition: 4,
+            authors: 'ikun',
+            year: 2017
+        }
+        let jsonText = JSON.stringify(book, ['title', 'year']);//第二个参数是过滤器可以是数组函数,结果只用这两个
+        console.log(jsonText)
+        let jsonText1 = JSON.stringify(book, ['title', 'year'], '-----');//第三个参数是控制缩进和空格
+        console.log(jsonText1)
+        //toJSON()方法
+        //toJSON() 方法可以将 Date 对象转换为字符串，并格式化为 JSON 数据格式
+    </script>
+</body>
+
+</html>

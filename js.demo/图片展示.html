@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            float: left;
+            display: flex;
+            flex-direction: row;
+            width: 430px;
+            height: 140px;
+            padding-top: 430px;
+            background: url('../Mi-Mall/images/xialacaidan1.webp')no-repeat;
+        }
+        #box ul{
+            width: fit-content;
+            height: fit-content;
+        }
+        #box ul li{
+            display: inline;
+            width: 215px;
+            height: 140px;
+        }
+      .check{
+        width: 80px;
+        height: 40px;
+      }
+    </style>
+</head>
+<body>
+    <div id="box">
+    </div>
+        <ul>
+            <li class="item"><img src="../Mi-Mall/images/xialacaidan1.webp" alt=""></li>
+            <li class="item"><img src="../Mi-Mall/images/xialacaidan2.webp" alt=""></li>
+            <li class="item"><img src="../Mi-Mall/images/xialacaidan3.webp" alt=""></li>
+            <li class="item"><img src="../Mi-Mall/images/xialacaidan4.webp" alt=""></li>
+            <li class="item"><img src="../Mi-Mall/images/xialacaidan5.webp" alt=""></li>
+        </ul>
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <button id="check">反选</button>
+    <script>
+        function $(id){
+               return typeof id=='string'? document.getElementById(id):null;
+        }
+        box=document.getElementById('box')
+        console.log(box);
+        console.log($(box));
+
+        let items=document.getElementsByClassName('item')
+        for (let i=0;i<items.length;i++){
+            let item=items[i];
+            item.id=i+1;
+            items[i].addEventListener('click',()=>{
+                console.log('图片被点击');
+                $('box').style.background=`url(../Mi-Mall/images/xialacaidan${item.id}.webp)no-repeat`
+            })
+        }
+        //反选效果
+        inputs=document.getElementsByTagName('input')
+        $('check').onclick=function(){
+            for(var i=0;i<inputs.length;i++){
+           inputs[i].checked =! inputs[i].checked ;
+           $('check').className='check'
+        //  相当于这段代码 if(inputs[i].checked){
+        //     inputs[i].checked=false
+        //    }else{
+        //     inputs[i].checked=ture
+        //    }
+            }
+        }
+    </script>
+</body>
+</html>

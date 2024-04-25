@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//在 catch 块中，error 参数包含关于错误的信息，包括错误类型和描述。
+//还可以使用 finally 块来执行无论是否发生错误都需要执行的代码：     
+try {
+    // 可能会抛出错误的代码
+    let item=new Array(-20)// 这里会抛出一个错误，因为不能除以0
+} catch (error) {
+    // 处理错误
+    console.log(error.message); // 输出错误信息
+} finally {
+    // 清理代码或者必须执行的代码
+    console.log('清理资源或其他必须执行的代码');//try没有错也会执行这个
+}
+    </script>
+    
+</body>
+</html>

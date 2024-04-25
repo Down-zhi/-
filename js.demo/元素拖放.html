@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #draggable {
+            width: 150px;
+            height: 150px;
+            background: skyblue;
+            color: white;
+            text-align: center;
+            line-height: 150px;
+            border: 2px dashed #333;
+            cursor: move;
+        }
+
+        #droptarget {
+            width: 150px;
+            height: 150px;
+            background: skyblue;
+            color: white;
+            text-align: center;
+            line-height: 150px;
+            border: 2px dashed #333;
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="draggable" draggable="true">Drag me!</div>
+    <div id="droptarget" draggable="true"> 拖放到我上面</div>
+    <script>
+        //当拖放到无效放置目标时会  出现特殊光标
+        let dragItem = document.getElementById('draggable')
+        dragItem.addEventListener('dragstart', (event) => {
+            event.dataTransfer.setData('text/plain', null)//传递文本
+            let text=event.dataTransfer.getData('text')
+
+        })
+        dragItem.addEventListener('dragend', (event) => {
+
+        })
+        document.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        })
+        document.addEventListener('drop', function (event) {
+            event.preventDefault();
+            const x = event.clientX;
+            const y = event.clientY;
+            dragItem.style.position = 'absolute';
+            dragItem.style.left = `${x}px`;
+            dragItem.style.top = `${y}px`;
+        });
+        let drop=document.getElementById('droptarget');
+        drop.addEventListener('dragover',(e)=>{
+            e.preventDefault()
+        })
+        drop.addEventListener('dragenter',(e)=>{
+            e.preventDefault()
+        })
+
+
+    </script>
+</body>
+
+</html>
