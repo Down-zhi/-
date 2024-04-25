@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv">
+  1
+    </div>
+    <div id="div1">
+        <p><b>hello</b> world!</p>
+        <ul>
+            <li> li1</li>
+            <li> li2</li>
+            <li> li3</li>
+        </ul>
+    </div>
+</body>
+<script>
+    let mydiv=document.getElementById('mydiv');
+    //设置背景颜色
+    mydiv.style.backgroundColor='red';
+   //修改大小
+   mydiv.style.width='100px'  
+   mydiv.style.height='200px'
+   //设置边框
+   mydiv.style.border='1px solid black'
+console.log(mydiv.style.width);
+//一次性设置多种属性，cssText会重写style属性的值
+// mydiv.style.cssText='text-algin:content';    
+for (let i=0,len=mydiv.style.length;i<len;i++){
+    console.log(mydiv.style[i])
+}
+//使用getpropertyValue（）返回css属性值和值类型
+//两个属性是cssText和cssValueType
+let prop,value,i,len;
+for(i=0,len=mydiv.style.length;i<len;i++){
+    prop=mydiv.style[i];
+    value=mydiv.style.getPropertyValue(prop);
+    console.log(`prop:${value.cssText} (${value.cssValueType})`);
+}
+let comstyle=document.defaultView.getComputedStyle(mydiv,null);
+console.log(comstyle.width);
+console.log(comstyle.border);
+console.log(comstyle.length);
+//css样式表
+
+
+for(let i=0,len=document.styleSheets.length;i<len;i++){
+    sheet=document.styleSheets[i];
+    console.log(sheet.href);
+    console.log(len);
+}
+//创建规则
+// let sheet=document.styleSheets[0];
+// sheet.insertRule('body {background-color:silver}',0)//插入位置0，是第一条规则
+
+
+
+
+</script>
+</html>

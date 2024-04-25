@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1"> <b>Hello</b>world!</p>
+
+
+</body>
+<script>
+    let range1=document.createRange(),
+    range2=document.createRange(),
+    p1=document.getElementById('p1');
+    range1.selectNode(p1);  //选择整个节点  它的范围是从  <P> 到</p>
+    range2.selectNodeContents(p1);//选择的是节点的后代是从<b>到 world!
+console.log( range1)
+console.log( range2)
+</script>
+</html>

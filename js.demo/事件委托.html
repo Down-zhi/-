@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+        <li>666</li>
+    </ul>
+    <h2>ul上添加了点击事件，但点击li也能触发当li被点击时<br>
+        由于冒泡原理，事件就会冒泡到ul上，因为ul上有点击事件，所以事件就会触发</h2>
+<script>
+    window.onload = function(){
+        var myul = document.getElementById('ul');
+        myul.onclick = function(){
+            let ev=window.event;
+            let target=ev.target//target可以表示为当前的事件操作的dom，但不是真正操作dom
+            //只是获取了当前节点的位置，并不知道什么节点
+            if( target.nodeName.toLowerCase() == 'li' ){//只点击li才会触发事件
+                console.log(123);
+                console.log(target.innerHTML);
+            }
+        }
+    }
+</script>
+</body>
+</html>

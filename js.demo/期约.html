@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="start">开始</button>
+    <button id="cancel">取消</button>
+    <script>
+        // //执行异步任务，让每个执行器返回一个实列，每个后续期约等待知情权的
+        // let p1=new Promise((resolve,reject)=>{
+        //     console.log('p1 executor');
+        //     setTimeout(resolve,1000);
+        // })
+        // p1.then(()=>new Promise((resolve,reject)=>{
+        //     console.log('p2 exectuor');
+        //     setTimeout(resolve,1000);
+        // })).then(()=>new Promise((resolve,reject)=>{
+        //     console.log('p3 exectuor');
+        //     setTimeout(resolve,1000);
+        // })).then(()=>new Promise((resolve,reject)=>{
+        //     console.log('p4 exectuor');
+        //     setTimeout(resolve,1000);
+        // }))
+
+        // //写成函数
+        // function delayresolve(res){
+        //     return new Promise((resolve,reject)=>{
+        //         console.log(res);
+        //         setTimeout(resolve,1000)
+        //     })
+        // }
+        // delayresolve('p1 执行了')
+        // .then(()=>delayresolve('p2 执行了'))
+        // .then(()=>delayresolve('p3 执行了'))
+        // .then(()=>delayresolve('p4 执行了'))
+
+        // //因为then ，catch finally都返回期约 可以解决回调问题
+        // let x=new Promise((resolve,reject)=>{
+        //     console.log('initial promise rejrcts');
+        //     reject();
+        // });
+        // x.catch(()=>console.log('reject  handler'))
+        //  .then(()=>console.log("resolve handler"))
+        //  .finally(()=>console.log("finally handler"))
+
+         //期约取消
+
+         class CancelToken{
+            constructor(cancelFn){
+                this.promise=new Promise((resolve,reject)=>{
+                    cancelFn(()=>{
+                        setTimeout(console.log ,0,'delay canceled');
+                        resolve()
+                    })
+                })
+            }
+         }
+
+         const startbtn=document.querySelector('#start')
+         const cancelbtn=document.querySelector("#cancel")
+
+         function Delayresolve(delay){
+            setTimeout(console.log,0,'set delay');
+            return new Promise((resolve,reject)=>{
+                const id=setTimeout((() => {
+                    setTimeout(console.log,0,'delay resolve');
+                    resolve();
+                }), delay);
+                const  cancelToken=new CancelToken((cancelCallback)=>
+            cancelbtn.addEventListener('click',cancelCallback
+            ) );
+            cancelToken.promise.then(()=>clearTimeout(id));
+            })
+         }
+        
+         startbtn.addEventListener('click',()=>Delayresolve(1000));
+    </script>
+</body>
+</html>

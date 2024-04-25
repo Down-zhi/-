@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function foo() {
+            console.log(1);
+            return 3;    //没有返回值为undefined
+        }
+        foo().then(console.log);
+        console.log(2);
+        //首先，定义并立即调用 foo() 函数，打印出 1。
+        // 然后，由于 JavaScript 异步机制（事件循环），主线程继续执行下一行代码，打印出 2。
+        // 最后，当主线程空闲时，事件循环处理已 resolve 的 Promise，并调用 .then() 中传入的回调函数 console.log，打印出 Promise 内部的值 3。
+    </script>
+</body>
+
+</html>
