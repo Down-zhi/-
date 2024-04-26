@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function baz(){
+            console.log('baz');
+            bar();
+            console.log('1');
+        }
+        function bar(){
+            console.log('bar');
+            foo()
+            console.log('2');
+        }
+        function foo(){
+            console.log('foo');
+            console.log('3');
+              
+        }
+        baz() //结果 baz bar foo 3 2 1
+//  baz 入栈
+// bar 被 baz 调用，bar 入栈
+// foo 被 bar 调用，foo 入栈
+// foo 执行完毕，foo 出栈
+// bar 执行完毕，bar 出栈
+// baz 执行完毕，baz 出栈         
+        // function foo(){
+        //     console.log(this.a);
+        // }
+        // let obj={
+        //     a:2,
+        //     foo:foo
+        // };
+    
+        // var bar=obj.foo;//函数别名
+        // var  a='nb 666'
+        // bar();
+    </script>
+</body>
+</html>

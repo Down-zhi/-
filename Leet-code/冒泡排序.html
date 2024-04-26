@@ -1,0 +1,39 @@
+<!-- 从开始位置两两比较，持续n轮,从输入的数中从大到小排序 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text">
+    <button id="button"></button>
+    <script>
+  let input=document.getElementById('input');
+  let arr=[];
+ 
+  document.getElementById('button').addEventListener('click',()=>{
+    let inputtext=input.value;
+  
+    let num=inputtext.split('').map(Number) ;
+   let result=bubbling([num])
+   console.log(result);
+    }
+ )
+
+
+  function  bubbling(arr) {
+    for (let i=0;i<arr.length-1;i++){//外层循环
+        for(let j=0;j<arr.length-1;j++){
+            if (arr[j]>arr[j+1]){ //两两比较
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+            }
+        }
+    }
+
+  }
+  console.log(bubbling([1,4,54,6]));
+    </script>
+</body>
+</html>
