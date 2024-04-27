@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        .input {
+            margin-top: 90px;
+        }
+        .important
+{
+	font-weight:bold;
+	font-size:xx-large;
+}
+.blue
+{
+	color:blue;
+}
+    </style>
+</head>
+
+<body>
+    <script>
+        //jquery 语法：$(selector).action()
+        //美元符号定义 jQuery
+        //选择符（selector）"查询"和"查找" HTML 元素
+        //jQuery 的 action() 执行对元素的操作
+        $(document).ready(function () {         //dom加载完成后
+            $('p').click(function () {
+                $(this).hide(1000)
+            })
+        })
+        $(function () {                         //简写等同于上面 this是当前选取的html元素
+            $('p').click(function () {
+                $(this).hide(1000)            //参数代表消失时间
+            })
+        })
+        $(function () {
+            $('button').click(function () {       //所有p隐藏
+                $('p').hide()
+            })
+        })
+        $(function () {
+            $('button.show').click(function () {  //所有p show
+                $('p').toggle()
+            })
+        })
+        $(function () {
+            $('button.clear').click(function () {
+                $('*').hide()                //'*'是选取全部
+            })
+        })
+        $(function () {
+            $('ul li:first').css('background-color', 'blue')    //ul下li的第一个元素  
+        })
+        $(function () {
+            $('ul li:first-child').css('color', 'red')    //ul下每一个li的第一个元素  
+        })
+        $(function () {
+            $('button').mouseenter(function () {           //所有button鼠标移动 
+                console.log(`鼠标移动到${this.innerText}上`);
+            })
+        })
+        $(function () {
+            $('button').mouseleave(function () {           //所有button鼠标移走
+                console.log(`鼠标离开${event.target}`),
+                    console.log(event.target);
+            })
+        })
+        $(function () {
+            $('ul li:first').dblclick(function () {        //ul下li的第一个元素双击打印666 
+                console.log('666')
+            })
+        })
+        $(function () {
+            $('ul li:first').hover(
+                function () {                  //hover的两个函数第一个代表鼠标进来 第二个代表离开
+                    console.log(`你进入${this}`)
+                },
+                function () {
+                    console.log('偶走了')
+                }
+            )
+        })
+        $(function () {
+            $('input').focus(function () {              //输入框聚焦
+                $(this).css("background-color", "#cccccc")
+            })
+        })
+        $(function () {
+            $('input').blur(function () {              //输入框失焦
+                $(this).css("background-color", "#ffffff")
+            })
+        })
+        $(function () {
+            $('div.disappear').click(() => {
+                $('div.disappear').hide(1000, 'linear', function () {
+                    alert('div块已经消失'),              //算callback
+                        (function () {
+                            setTimeout($('div').show(1000, 'linear'), 2000)
+                        })
+                })
+            })
+        })
+        // ----------------------------------渐入渐出效果-------------------------------------------- 
+        $(function () {
+            $('button.fadetoggle').click(function () {
+                $('#div1').fadeToggle(),             //fadeIn 淡入   fadeout 淡出 .fadeToggle切换
+                    $('#div2').fadeToggle('slow'),
+                    $('#div3').fadeToggle(3000);
+            })
+        })
+        $(document).ready(function () {
+            $("button.fadeto").click(function () {
+                $("#div1").fadeTo("slow", 0.15);       //fadeTo 让颜色变淡
+                $("#div2").fadeTo("slow", 0.4);
+                $("#div3").fadeTo("slow", 0.7);
+            });
+        });
+        //--------------------------------滑动--------------------------------------------    
+        $(function () {
+            $('div.flip').click(function () {
+                $('div.panel').slideToggle('slow')     //slideDown 元素下滑 slideUp 上拉  slideToggle 切换
+            })
+        })
+        //停止滑动 
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideDown(5000);        //点击停止下滑会被打断
+                $("#panel").slideUp(5000);          //上滑会被触发
+            });
+            $("#stop").click(function () {
+                $("#panel").stop();                 //stip(ture)设置为ture会全部打断
+            });
+        });
+        //--------------------------------动画-------------------------------------------
+
+        $(function () {
+            $("button.change").click(function () {
+                $("div.animate").animate({ height: '300px', opacity: '0.4' }, "slow")    //animate({params(动画的 CSS 属性)},speed,callback(动画完成后所执行的函数名称));
+                    .animate({ width: '300px', opacity: '0.8' }, "slow")
+                    .animate({ fontSize: '3em' }, "fast")
+                    .animate({ height: '100px', opacity: '0.4' }, "slow")
+                    .animate({ width: '100px', opacity: '0.8' }, "slow")
+                    .animate({ fontSize: '1em' }, "fast")                        //在上一条 语句后直接加.然后下一条是链式
+            });
+        });
+        //---------------------------------获取值和属性--------------------------------------     
+        $(function () {
+            $('input.input').focus(function () {
+
+                console.log(this);             //对于HTML元素本身就带有的固有属性，在处理时，使用prop方法。
+                $(this).attr('placeholder', '') //对于HTML元素我们自己自定义的DOM属性，在处理时，使用 attr 方法          
+            })                                 //鼠标聚焦时输入框没内容  
+            $('input.input').blur(function () {
+                alert('输入框的值为;' + $('input.input').val())          //获取值
+            })
+        })
+        //---------------------------------增删添加样式-------------------------------------  ------------
+        $(function () {
+            $('.btn').click(function () {
+                $('ol').append('<li>追加列表项</li>')
+                // append(): 在被选元素的结尾插入内容 prepend():在被选元素的开头插入内容 
+                //after():在被选元素之后插入内容 before() - 在被选元素之前插入内容
+            })
+        })
+        function afterText() {
+            var txt1 = "<b>I </b>";                    // 使用 HTML 创建元素
+            var txt2 = $("<i></i>").text("love ");     // 使用 jQuery 创建元素
+            var txt3 = document.createElement("big");  // 使用 DOM 创建元素
+            txt3.innerHTML = "jQuery!";
+            $("img").after(txt1, txt2, txt3);          // 在图片后添加文本
+        }
+        $(function(){
+            $('.btn1').click(function(){              //remove是全部移除
+                $('.div1').remove()   
+                // $('.p').remove('.p1')                  //remove('p')只移除class为p的
+             })
+        });
+        $(function(){
+            $('.btn2').click(function(){              //empty是把内容移除
+                $('div.div1').empty()                
+            }) 
+        });
+        $(function(){
+            $('.btn3').click(function(){                
+            $('h1,h2,.p1').addClass('blue')   //给h1 h2 和class=p1的元素加blue类
+            $('p').addClass('important')    //给class=p2的元素加important类
+        }) 
+        });
+        $(function(){
+            $('.btn4').click(function(){
+                $('b').css({"background-color":"yellow","font-size":"200%"})
+            })
+        });
+        $(function(){
+            $('.btn5').click(function(){
+                var randomColor = 'rgb(' + Math.floor(Math.random()*256) + ',' + 
+                       Math.floor(Math.random()*256) + ',' + 
+                       Math.floor(Math.random()*256) + ')';
+                $('b').css({"background-color":randomColor})           //设置随机颜色
+            })
+        });
+        $(function(){
+            $('.btn6').click(function(){
+                let text=''
+                text+="div 的宽度是: " + $(".div2").width() + "</br>";    //计算宽高
+                text+="div 的高度是: " + $(".div2").height()+ "</br>";
+                text+="div 宽度，包含内边距: " + $(".div2").innerWidth() + "</br>";
+                text+="div 高度，包含内边距: " + $(".div2").innerHeight()+ "</br>"; //内边距的宽高
+                text+="div 宽度，包含内边距和边框: " + $(".div2").outerWidth() + "</br>";
+                text+="div 高度，包含内边距和边框: " + $(".div2").outerHeight(); //包含内边距和边框
+                  $('.div2').html(text)
+            })
+        })
+    </script>
+    <p>点击我就会消失</p>
+    <p>继续点我</p>
+    <p>我也会</p>
+    <button>点击清除以上文字</button>
+    <button class="show">点击显示文字</button>
+    <button class="clear">清空页面</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul>
+        <li>一</li>
+        <li>二</li>
+        <li>三</li>
+    </ul>
+    <label for="">
+        Name:<input type="text">
+        age: <input type="number">
+    </label>
+    <div class="disappear" style="width: 100px;height: 100px;background-color: aqua;">点击我会缓慢消失 减慢</div>
+    <hr>
+    <button class="fadetoggle">点击出现和消失</button>
+    <button class="fadeto">点击颜色变淡</button>
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+    <hr>
+    <div class="flip" style="width: 200px;height: 20px;background-color: aqua;">点击下滑面板再次点击上拉</div>
+    <div class="panel" style="width: 200px;height: 50px;display: none;background-color: rgb(0, 255, 64);">面板</div>
+    <button id="stop">停止滑动</button>
+    <div id="flip" style="width: 200px;height: 20px;background-color: aqua;">点我向下滑动面板</div>
+    <div id="panel" style="width: 200px;height: 50px;display: none;background-color: rgb(0, 255, 64);">Hello world!
+    </div>
+
+    <hr>
+    <button class="change">改变动画</button>
+    <div class="animate" style="background:#98bf21;height:100px;width:100px;position:absolute;">ikun</div>
+    <hr>
+    <input class="input" type="text" placeholder="请输入值">
+    <p class="receive"> 用于接收输入框文本</p>
+    <div class="receive" style="width: 100px;height: 100px;overflow: hidden;background-color: blue;"></div>
+    <ol>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+    <button class="btn">添加列表项</button>
+    <br>
+    <img src="https://www.keaitupian.cn/cjpic/frombd/0/253/3630672960/3898232280.jpg" alt="">
+    <button onclick="afterText()">在图片后面添加文字</button>
+    <div class="div1" style="width: 200px;height: 200px;background-color: #98bf21;">
+        <p class="p1"> 我是文本1</p>
+        <p> 我是文本2</p>
+        <p>我是文本3</p>
+    </div>
+    <button class="btn1">用remove移除上面</button>
+    <button class="btn2">用empty移除上面文本</button>
+    <h1>标题1</h1>
+    <h2>标题2</h2>
+    <p > 我是文本1</p>
+    <p >我会变大</p>
+    <button class="btn3">给以上文本添加css样式</button><br>
+    <b>段落</b>
+    <b>段落</b>
+    <b>段落</b>
+    <button class="btn4">给文本设置css属性</button>
+    <button class="btn5">给文本换随机背景</button>
+    <div  class="div2" style="height:100px;width:300px;padding:10px;margin:3px;border:1px solid blue;background-color:lightblue;"> </div>
+    <button class="btn6">计算上面宽高</button>
+</body>
+
+</html>

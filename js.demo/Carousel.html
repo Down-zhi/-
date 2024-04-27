@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../jquery/jquery.min.js"></script>
     <style>
         .swiper-wrap {
 
@@ -72,16 +73,14 @@
         <button id="left">上一页</button>
         <button id="right">下一页</button>
     </div>
-
+<!-- 
     <script>
         let num = 1;
-        // const swiperitems = document.getElementsByClassName('swiper-items');
         const swiperitem = document.getElementsByClassName('swiper-item');
         console.log(swiperitem)
         const swiperitem1 = document.querySelector('.swiper-items'); //Web API,它选择与传入的指定CSS选择器匹配的第一个元素。
         console.log(swiperitem1)
         const swiperitemWidth = 1226;
-        // const swiperitemsWidth = 1226 * swiperitem.length;
         //定义按钮
         const leftbutn = document.getElementById('left')
         const rightbutn = document.getElementById('right')
@@ -120,16 +119,52 @@
             swiperitem1.style.transition = 'all 1s'
             const translateX = swiperitemWidth * -num;
             swiperitem1.style.transform = `translateX(${translateX}px)`
-
-
-
         }
         )
 
 
 
-    </script>
+    </script> -->
+<script>
+    $(function() {
+    let num=0
+    const swiperItemWidth = 1226;
+    // 绑定左按钮点击事件
+    $('#left').click(function() {
+        num--;
+        if (num === 0) {
+            setTimeout(() => {
+                num = $('.swiper-item').length - 2;
+                $('.swiper-items').css({
+                    'transform': `translateX(${-swiperItemWidth * 6}px)`,
+                    'transition': 'none'
+                });
+            }, 1000);
+        }
 
+        $('.swiper-items').css('transition', 'all 1s');
+        $('.swiper-items').css('transform', `translateX(${-swiperItemWidth * num}px)`);
+    });
+
+    // 绑定右按钮点击事件
+    $('#right').click( function() {
+        num++;
+        if (num === $('.swiper-item').length) {
+            setTimeout(() => {
+                num = 1;
+                console.log('定时器执行------');
+                $('.swiper-items').css({
+                    'transform': `translateX(-${swiperItemWidth}px)`,
+                    'transition': 'none'
+                });
+            }, 1000);
+        }
+
+        $('.swiper-items').css('transition', 'all 1s');
+        $('.swiper-items').css('transform', `translateX(${-swiperItemWidth * num}px)`);
+    });
+});
+</script>
 
 </body>
 
