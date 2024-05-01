@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+      let input =document.querySelector('input')
+          function callback(e) {
+                console.log(e.target.value);
+            }
+        //间隔事件里触发定时器 如果提前触发则重新刷新间隔时间
+       function debounce(fn,delay){
+           let timer=null;
+           const bounce=()=>{
+            if(timer){
+                clearTimeout(timer)
+            } 
+            return function () {
+                       // 每次输入都会调用该函数，清除之前的定时器，重新开启定时器。
+                    clearTimeout(timer);
+                    timer = setTimeout(() => {
+                        // 当delay时间内，不再输入内容,则执行该函数，打印出输入框的内容
+                        fn.apply(this, arguments);
+                    }, delay);
+    }
+}
+       }
+    // let click=function(){
+    //     document.querySelector('button').onclick(()=>{
+    //         let i=1;i++
+    //         console.log('i');
+    //     })
+    // }
+   let debouncefn= debounce(callback,2000);
+   input.addEventListener('keyup',function(e){
+   debouncefn(e)
+   })
+    </script>
+</body>
+</html>

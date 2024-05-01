@@ -8,21 +8,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src="main.js"></script>
-     -->
-     <script type="module" src="math.js"></script>
 </head>
 <body>
-    <script>
-        // function Test1(){    
-        //  console.log("这是默认导出")}      //默认导出的变量只能有一个
-        // function Test2(){   
-        // console.log('这是命名导出')}
-        //  export default Test1       
-        //  function Test2(){    
-        // console.log('这是命名导出')}
-        // export {Test1, Test2}       //批量导出
-     
+    <script type="module">
+  //import() 返回一个 Promise 将在模块加载后完成后返回值。
+// 使用 async/await 来处理 import().
+// 使用 Promise.all() 方法一次加载多个模块。
+// 使用对象解构将变量分配给模块的导出对象。
+// 使用 default 关键字访问默认导出。
+    //  import {name,add,random } from './math.js'
+    //  import person,{name,add,random } from './math.js'  //person是默认导出的模块
+     import * as all from './math.js' //导出全部 命名为all
+     console.log(all);          
+     console.log(all.name);          //取出全部里的name
+     console.log(name);
+     console.log(all.add(2,6));
+     console.log(all.random(2,6));
+    // const p=new person(); 
+    // p.sayAge()
     </script>
 </body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//call方法 立即执行
+//functionName.call(thisArg, arg1, arg2, ...)  thisarg是为调用fn函数提供this的值
+//call()方法的作用和 apply() 方法类似，区别就是call()方法接受的是参数列表，而apply()方法接受的是一个参数数组。
+
+let arr = [1, 2, 3];
+let numbers = [4, 5, 6,890];
+arr.push.apply(arr, numbers);
+console.log(arr); 
+
+var arr1 =[2,6,8,3,4,9,7,23,56,889]; 
+console.log(Math.max.apply(arr,arr1))
+//bind方法 
+//fn.bind(thisArg[, arg1[, arg2[, ...]]]) bind()方法返回具有指定this值(thisArg)和参数，不会立即执行函数，会返回一个绑定新this的函数
+let runner={
+      name:'跑',
+      run:function(speed){
+    console.log(this.name + ' runs at ' + speed + ' mph.');
+      }
+}
+let flyer={
+    name:'飞',
+   fly:function(res){
+     console.log(this.name +'成绩'+res*res);
+   }
+}
+//使用bind借用别的对象中的方法
+let run =runner.run.bind(flyer,20) //飞runs at 20 mph
+run()
+let fly=flyer.fly.bind(runner,6)  
+fly()//跑成绩26
+
+//闭包其内部作用域引用外部作用域中的变量。闭包将外部作用域保留在其内部作用域内。
+// function greeting(){
+//     let message='hi';
+//    function sayhi(){
+//     console.log(message);
+//    }return sayhi 
+// }
+// let hi = greeting();     //greeting()函数返回的值赋给变量hi 是对sayHi()函数的引用。
+// hi()
+//这是greeting()函数返回sayHi()函数对象，而不是在函数greeting()内部执行sayHi()函数。
+
+//闭包实例
+function greeting(message) {
+   return function(name){
+        return message + ' ' + name;
+   }
+}
+greeting('hi')
+console.log(greeting('hi'));   //返回function(name){ return message + ' ' + name; }
+let sayhi=greeting('hi')
+console.log(sayhi('ikun'));
+let sayhello=greeting('Hello');
+console.log(sayhello('小黑子')); //sayHello()和sayHi()是闭包。它们共享相同的函数体，但存储不同的作用域。
+
+
+for (let index = 1; index <= 3; index++) {       //使用let，它将在每次迭代中创建一个新的词法作用域
+    setTimeout(function () {
+        console.log('after ' + index + ' second(s):' + index);
+    }, index * 1000);
+}
+//立即调用IIFE
+function add(a,b) {           //add() 函数添加到 window 全局对象
+    return a + b;
+}                             
+console.log(window.add);
+ //通过将函数和变量放在立即调用的函数表达式，可以避免它们污染全局对象
+(function() { 
+    var counter = 0;
+    function muf(a, b) {   //不会被全局发现
+        return a * b;
+    }
+    console.log(muf(10,20)); 
+}());          
+let num=66 
+console.log(window.num);//undefined 使用let/const声明的全局变量,会被绑定到Script对象而不是Window对象
+var counter=1;
+console.log(window.counter);//1 var 声明的可以                   
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocumentFragment Demo</title>
+</head>
+<body>
+    <ul id="language"></ul>
+
+    <script>
+        let languages = ['JS', 'TypeScript', 'Elm', 'Dart', 'Scala'];
+
+        let langEl = document.querySelector('#language');
+        let fragment = new DocumentFragment();
+
+        languages.forEach((language) => {
+            let li = document.createElement('li');
+            li.innerHTML = language;
+            fragment.appendChild(li);
+        })
+        langEl.appendChild(fragment);
+        //在将DOM节点更新到活动DOM树之前可以优化性能，提升用户体验易于撤销和事务管理
+    </script>
+
+</body>
+</html>
