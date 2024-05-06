@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img style="width: 900px; height: 600px;" src=' c:\Users\12659\Pictures\Screenshots\屏幕截图 2024-04-26 182009.png'
+        alt="">函数传参时内存的变化
+    <img style="width: 900px; height: 600px;" src='c:\Users\12659\Pictures\Screenshots\屏幕截图 2024-04-26 182454.png '
+        alt="">
+    <script>
+        //call apply方法应用 --------------------------------------------
+        // 1. 找出数组最大元素
+        let max = Math.max(1, 2, 6, 9)
+        let arr1 = [2, 4, 8, 33, 20]
+        let arrmax = Math.max.apply(null, arr1)
+        console.log(arrmax);
+        // 2.类数组转换真正的数组
+        function add() {
+            var arr = Array.prototype.slice.apply(arguments);
+            arr.push(66);  //数组可以进行push map等操作
+            console.log(arr);
+        }
+        add(1, 2, 3)
+        //3.数组追加
+        let arr = [];
+        arr.push(1, 4, 5, 6)
+        console.log(arr);
+        Array.prototype.push.apply(arr, [7, 8, 9])
+        console.log(arr);
+        //4.apply call继承  ,方法在间接调用时会改变this指向
+        function Animal(name, age) {
+            this.name = name;
+            this.age = age
+            this.setwork = function () {
+            }
+        }
+        function dog() {
+            Animal.apply(this, arguments)
+        }
+        let d = new dog('大黄', 18)
+        console.log(d);
+        //函数调用 ---------------------------------------------------------
+        function fn() {
+            this.a = 2
+        }
+        let FN = new fn()       //当函数调用时使用new 返回值为空或不是一个对象时 则会返回该对象
+        console.log(FN);
+        //函数参数-----------------------------------------------------------
+        function add() {          //同名形参只最后一个有用，形参不是必须的可以用arguments代替 
+            //    'use strict';   //严格模式下报错
+            // return x 
+            console.log(arguments);
+            console.log(arguments[0]); //第一个元素7
+        }
+        console.log(add(7, 8, 9));
+
+        //在向参数传递引用型的值时 实质是将这个值在内存中的地址复制给局部变量,函数执行完内存会立马被销毁
+        function setName(obj) {
+            obj.name = 'ikun'
+        }
+        let people = new Object();
+        setName(people);
+        console.log(people.name);
+        //函数作用域------------------------------------------------------------------
+        //内部原理：1编译，2执行，3查询，4嵌套，5异常 
+        let a=2; //1.1 分词   词法单元：let ，a，=，2，;
+         // {
+            //'let' :'keyword'             关键词
+            //'a'   :'indentifier'         标识符
+            //'='   :'assign'             分配
+            //'2'   :'number '             整数
+         // }
+         //1.2抽象语法树(AST)
+         //1.3代码生成  将AST传化为可执行的代码，机器指令
+         console.log(a);//2.执行时首先查找当前作用域，看a是否在当前作用域下，如果有直接使用如果没有继续查找,找到后引擎直接使用这个变量，否则报错
+         function foo(x){
+            console.log(x);
+         }
+         foo(2)         //3查询  
+         //3.1 foo()对foo函数进行RHS(右查询 ，赋值是左查询，变量在=前)进行引用
+         //3.2 函数传参X=2对a进行了LHS（有赋值）引用
+         //3.3  console.log(x)对console对象进行RHS，并检查是否有log方法
+         //3.4 对x进行了RHS并把值传给了console.log(）
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!-- 模块化简单来说就是将一个完整的长篇代码文件根据功能进行划分成几个文件，
+这些文件各自负责一个独立的功能，各个文件组合起来实现一个完整的大功能，
+这就是模块化，每个负责独立功能的文件就是模块。 -->
+<!-- import 和 export 语句用于将一个模块里实现某些功能的变量或函数,类导入/导出 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+  //import() 返回一个 Promise 将在模块加载后完成后返回值。
+// 使用 async/await 来处理 import().
+// 使用 Promise.all() 方法一次加载多个模块。
+// 使用对象解构将变量分配给模块的导出对象。
+// 使用 default 关键字访问默认导出。
+    //  import {name,add,random } from './math.js'
+    //  import person,{name,add,random } from './math.js'  //person是默认导出的模块
+     import * as all from './math.js' //导出全部 命名为all
+     console.log(all);          
+     console.log(all.name);          //取出全部里的name
+     console.log(name);
+     console.log(all.add(2,6));
+     console.log(all.random(2,6));
+    // const p=new person(); 
+    // p.sayAge()
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='jquery.min.js'></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .comment {
+            font-size: 40px;
+            color: #ff3100;
+        }
+
+        .comment li {
+            float: left;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+        .aaa{
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            float: left;
+            list-style: none;
+            text-align: center;
+            font: 50px/100px "simsun";
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <ul class="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+  <ul class="op">
+    <li class="aaa">1</li>
+    <li class="aaa">2</li>
+    <li class="aaa">3</li>
+    <li class="aaa">4</li>
+    <li class="aaa">5</li>
+    <li class="aaa">6</li>
+    <li class="aaa">7</li>
+    <li class="aaa">8</li>
+    <li class="aaa">9</li>
+    <li class="aaa">10</li>
+  </ul>
+    <script>
+        // 在方法的内部会为匹配到的所有元素进行循环遍历，执行相应的方法；而不用我们再进行循环，简化我们的操作，方便我们调用。
+        var star_none = '☆'; 
+        var star_sel = '★'; 
+            //需求1：鼠标放悬停时，当前的li和之前所有的li内容全部变为实心五角星，移开变为空心。
+            $('.comment').on('mouseenter','li',function(){
+                $(this).text(star_sel).prevAll("li").text(star_sel).end().nextAll("li").text(star_none);
+            })
+            $(".comment li").on("mouseleave", function () {
+                if ($("li.current").length === 0) {
+                    $(".comment li").text(star_none);
+                } else {
+                    $("li.current").text(star_sel).prevAll("li").text(star_sel).end().nextAll("li").text(star_none);
+                }
+            });
+            $(".comment li").on("click", function () {
+                //点击哪个li给他加一个类名。清空其他所有的li的类名
+                $(this).attr("class", "current").siblings("li").removeAttr("class");
+            });
+            $(".comment li").on("dblclick", function () {
+                //点击哪个li给他加一个类名。清空其他所有的li的类名
+                $(this).removeAttr("class");
+            });
+
+
+
+            //设置透明度
+            $('.op li').each(function(index,element){
+                $(element).css('opacity',(index+1)/10);
+            })
+            function foo(callback) {
+                    {
+                       console.log('666');
+                    }
+                    callback && callback() // 不传 callback 参数，则不会执行 callback() 函数
+                }
+         function add(){
+            let a=3,b=4
+           console.log(a+b);
+         }
+                foo(); // 只执行do something中的代码
+                foo(add);//callback是另一个函数，将此函数传入 foo，将会执行callback()
+    </script>
+</body>
+</html>

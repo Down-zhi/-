@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery.min.js"></script>
+    <style>
+        .image-container {
+            position: relative;
+        }
+
+        .image {
+            width: 1226px;
+
+            position: absolute;
+            transition: opacity 1s;
+            /* 这里是切换缓慢特效，1秒内完成切换 */
+        }
+
+        button {
+            margin-top: 470px;
+        }
+
+        .active {
+            transform: translateX(0%);
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container">
+        <img id="image" class="image" src="D:\code\Mi-Mall\images\Carousel2.webp">
+    </div>
+    <button onclick='preImage()' class="btn1">点击切换到上一张</button>
+    <button onclick="nextImage()">点击切换到下一张</button>
+
+    <script>
+        let index = 0;
+        const images = ['D:\code\Mi-Mall\images\Carousel1.webp', 'D:\code\Mi-Mall\images\Carousel3.webp', 'D:\code\Mi-Mall\images\Carousel4.webp'];
+
+         $(function preImage(){
+            if (index===0) {
+                index =images.length;
+            } 
+            index--;        //先让他等于长度再-
+            $('#img').css('opacity','0');               //css设置样式
+            setTimeout(()=>{
+                $('#img').attr('src', images[index]);  //attr设置属性
+            },500)
+            $('#img').addClass('active')
+            setTimeout(() => {                        
+                $('#img').css('opacity','1');  
+            }, 1000);
+        })
+
+        // });
+        // $(function () {
+        //     $('.btn1').click(function () {
+        //         if (index === 0) {
+        //             index = images.length - 1;
+        //         }
+        //         index--
+        //         $('#img').addClass('active');
+        //             //先让他等于长度再-
+        //         $('#img').css('opacity', 0.5);               //css设置样式
+        //         setTimeout(() => {
+        //             $('#img').attr('src', images[index]);  //attr设置属性
+        //         }, 500)
+               
+        //         setTimeout(() => {
+        //             $('#img').css('opacity', 1);
+        //         }, 1000);
+        //     })
+        // })
+        function nextImage() {
+            index++;
+            console.log(images.length);
+            if (index >= images.length) {
+                index = 0;
+            }
+            document.getElementById('image').style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById('image').src = images[index];
+            }, 500)
+            document.getElementById('image').classList.add('active')
+            setTimeout(() => {
+                document.getElementById('image').style.opacity = 1;
+            }, 1000);
+
+        }
+    </script>
+</body>
+
+</html>

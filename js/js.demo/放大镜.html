@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Zoom</title>
+  <style>
+    .container {
+      position: relative;
+      width: 1000px;
+      height: 800px;
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .zoom {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 2px solid black;
+      display: none;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img class="image" src="https://img0.baidu.com/it/u=3600411868,4096115042&fm=253&fmt=auto&app=138&f=JPEG?w=1422&h=800" alt="Image">
+    <div class="zoom"></div>
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+    const image = document.querySelector('.image');
+    const zoom = document.querySelector('.zoom');
+
+    container.addEventListener('mousemove', e => {
+      const rect = container.getBoundingClientRect();//返回元素的大小及其相对于窗口的位置。
+      const x = e.clientX - rect.left;                //窗口的x坐标-容器到左侧的距离
+      const y = e.clientY - rect.top;
+
+      // 计算放大镜位置
+    
+      const zoomX = x / container.offsetWidth * 100;  
+      const zoomY = y / container.offsetHeight * 100; 
+     //放大镜样式
+      zoom.style.backgroundImage = `url(${image.src})`;  
+      zoom.style.backgroundSize = `${image.width * 2}px ${image.height * 2}px`;
+      zoom.style.backgroundPosition = `${zoomX}% ${zoomY}%`;
+      zoom.style.display = 'block';
+      zoom.style.left = `${x - zoom.offsetWidth / 2}px`;
+      zoom.style.top = `${y - zoom.offsetHeight / 2}px`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      zoom.style.display = 'none';
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+      .item{
+            width: 100px;
+            height: 100px;
+            margin: 20px 10px ;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <ul id="ul">
+        <li class="item">1</li>
+        <li class="item">2</li>
+    </ul>
+    <script>
+        let box = document.getElementById('box')
+        // box.onclick = function(e) {
+        //    this.innerHTML=e
+        // }
+        box.onclick = function() {
+           this.innerHTML=event      //可以在事件中直接用event
+        }
+
+        //currentTarget属性返回事件所在的节点,正在监听的节点
+        document.getElementById('ul').onclick=function(e){
+            let items=document.getElementsByTagName('li')
+            items[0].innerHTML=e.currentTarget;
+            //target 返回的时触发事件时点击的对象 点击li1就taeget就是li1 
+            let target=e.target;
+            target.innerHTML='我被点击'
+            console.log('e.target-------->',e.target);
+            console.log('e.currentTarget--------------->',e.currentTarget);
+            //this对象和e.currentTarget属性是一致的
+            console.log(e.currentTarget===this);  //结果为true
+            console.log(e.target===this);      //如果点击ul为true ，点击其他为flase
+        }
+    </script>
+</body>
+
+</html>

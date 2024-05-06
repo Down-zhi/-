@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="math.js"></script>
+</head>
+<body>
+    <script>
+       //在两个js文件定义同一个函数但函数功能不同  在引用两者时会被覆盖
+       //可以用立即调用方法来实现
+       let result = calculator.add(10, 20);  //calculator 文件中的
+    console.log(result); // 30
+
+    console.log(add()); //这个是第二个js文件中的add方法
+    
+    </script>
+</body>
+</html>

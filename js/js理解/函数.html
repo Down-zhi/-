@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//call方法 立即执行
+//functionName.call(thisArg, arg1, arg2, ...)  thisarg是为调用fn函数提供this的值
+//call()方法的作用和 apply() 方法类似，区别就是call()方法接受的是参数列表，而apply()方法接受的是一个参数数组。
+
+let arr = [1, 2, 3];
+let numbers = [4, 5, 6,890];
+arr.push.apply(arr, numbers);
+console.log(arr); 
+
+var arr1 =[2,6,8,3,4,9,7,23,56,889]; 
+console.log(Math.max.apply(arr,arr1))
+//bind方法 
+//fn.bind(thisArg[, arg1[, arg2[, ...]]]) bind()方法返回具有指定this值(thisArg)和参数，不会立即执行函数，会返回一个绑定新this的函数
+let runner={
+      name:'跑',
+      run:function(speed){
+    console.log(this.name + ' runs at ' + speed + ' mph.');
+      }
+}
+let flyer={
+    name:'飞',
+   fly:function(res){
+     console.log(this.name +'成绩'+res*res);
+   }
+}
+//使用bind借用别的对象中的方法
+let run =runner.run.bind(flyer,20) //飞runs at 20 mph
+run()
+let fly=flyer.fly.bind(runner,6)  
+fly()//跑成绩26
+
+//闭包其内部作用域引用外部作用域中的变量。闭包将外部作用域保留在其内部作用域内。
+// function greeting(){
+//     let message='hi';
+//    function sayhi(){
+//     console.log(message);
+//    }return sayhi 
+// }
+// let hi = greeting();     //greeting()函数返回的值赋给变量hi 是对sayHi()函数的引用。
+// hi()
+//这是greeting()函数返回sayHi()函数对象，而不是在函数greeting()内部执行sayHi()函数。
+
+//闭包实例
+function greeting(message) {
+   return function(name){
+        return message + ' ' + name;
+   }
+}
+greeting('hi')
+console.log(greeting('hi'));   //返回function(name){ return message + ' ' + name; }
+let sayhi=greeting('hi')
+console.log(sayhi('ikun'));
+let sayhello=greeting('Hello');
+console.log(sayhello('小黑子')); //sayHello()和sayHi()是闭包。它们共享相同的函数体，但存储不同的作用域。
+
+
+for (let index = 1; index <= 3; index++) {       //使用let，它将在每次迭代中创建一个新的词法作用域
+    setTimeout(function () {
+        console.log('after ' + index + ' second(s):' + index);
+    }, index * 1000);
+}
+//立即调用IIFE
+function add(a,b) {           //add() 函数添加到 window 全局对象
+    return a + b;
+}                             
+console.log(window.add);
+ //通过将函数和变量放在立即调用的函数表达式，可以避免它们污染全局对象
+(function() { 
+    var counter = 0;
+    function muf(a, b) {   //不会被全局发现
+        return a * b;
+    }
+    console.log(muf(10,20)); 
+}());          
+let num=66 
+console.log(window.num);//undefined 使用let/const声明的全局变量,会被绑定到Script对象而不是Window对象
+var counter=1;
+console.log(window.counter);//1 var 声明的可以       
+//返回多个值
+function getNames() {
+  let firstName = 'John';
+  let lastName  = 'Doe';
+
+  return { firstName, lastName };
+}
+//读取作为返回值的对象：
+let names = getNames();
+let firstName = names.firstName;
+let lastName  = names.lastName;
+console.log(firstName);
+//如果在箭头函数的主体使用表达式，则不需要使用花括号。若使用语句则要包含到大括号
+let square = x => x * x;
+//什么情况下不用箭头函数 箭头函数没有this arguement和new.target，没有 prototype 属性
+
+
+//剩余参数必须出现在参数列表的末尾
+function fn(a,b,...args) {
+   //...
+}
+fn(1, 2, 3, "A", "B", "C"); //此时的args就是[3,'A','B','C']
+
+//只计算数求和
+function sum(...args) {
+  return args
+    .filter(function (e) {
+      return typeof e === 'number';
+    })
+    .reduce(function (prev, curr) {
+      return prev + curr;
+    });
+}
+//想在箭头函数里传一些值参数必须使用剩余参数
+const combine = (...args) => {
+  return args.reduce(function (prev, curr) {
+    return prev + ' ' + curr;
+  });
+};
+
+let message = combine('JavaScript', 'Rest', 'Parameters'); // =>
+console.log(message); // JavaScript Rest Parameters
+
+//回调
+function isOdd(number) {
+  return number % 2 != 0;
+}
+function isEven(number) {
+  return number % 2 == 0;
+}
+function filter(nums, fn) {
+  let results = [];
+  for (const number of nums) {
+    if (fn(number)) {
+      results.push(number);
+    }
+  }
+  return results;
+}
+var nums = [1, 2, 4, 7, 3, 5, 6] //isOdd 和 isEven​​ 是回调函数或者称为回调,filter()函数接受一个函数作为参数所以它被称为高阶函数
+console.log(filter(nums, isOdd));//同步回调是在高阶函数执行时运行 同步运行
+console.log(filter(nums, isEven));
+//异步回调是在高阶函数执行之后运行的回调函数，在等待期间运行其他代码
+    </script>
+</body>
+</html>
