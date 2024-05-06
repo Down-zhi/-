@@ -84,7 +84,70 @@ console.log(window.add);
 let num=66 
 console.log(window.num);//undefined 使用let/const声明的全局变量,会被绑定到Script对象而不是Window对象
 var counter=1;
-console.log(window.counter);//1 var 声明的可以                   
+console.log(window.counter);//1 var 声明的可以       
+//返回多个值
+function getNames() {
+  let firstName = 'John';
+  let lastName  = 'Doe';
+
+  return { firstName, lastName };
+}
+//读取作为返回值的对象：
+let names = getNames();
+let firstName = names.firstName;
+let lastName  = names.lastName;
+console.log(firstName);
+//如果在箭头函数的主体使用表达式，则不需要使用花括号。若使用语句则要包含到大括号
+let square = x => x * x;
+//什么情况下不用箭头函数 箭头函数没有this arguement和new.target，没有 prototype 属性
+
+
+//剩余参数必须出现在参数列表的末尾
+function fn(a,b,...args) {
+   //...
+}
+fn(1, 2, 3, "A", "B", "C"); //此时的args就是[3,'A','B','C']
+
+//只计算数求和
+function sum(...args) {
+  return args
+    .filter(function (e) {
+      return typeof e === 'number';
+    })
+    .reduce(function (prev, curr) {
+      return prev + curr;
+    });
+}
+//想在箭头函数里传一些值参数必须使用剩余参数
+const combine = (...args) => {
+  return args.reduce(function (prev, curr) {
+    return prev + ' ' + curr;
+  });
+};
+
+let message = combine('JavaScript', 'Rest', 'Parameters'); // =>
+console.log(message); // JavaScript Rest Parameters
+
+//回调
+function isOdd(number) {
+  return number % 2 != 0;
+}
+function isEven(number) {
+  return number % 2 == 0;
+}
+function filter(nums, fn) {
+  let results = [];
+  for (const number of nums) {
+    if (fn(number)) {
+      results.push(number);
+    }
+  }
+  return results;
+}
+var nums = [1, 2, 4, 7, 3, 5, 6] //isOdd 和 isEven​​ 是回调函数或者称为回调,filter()函数接受一个函数作为参数所以它被称为高阶函数
+console.log(filter(nums, isOdd));//同步回调是在高阶函数执行时运行 同步运行
+console.log(filter(nums, isEven));
+//异步回调是在高阶函数执行之后运行的回调函数，在等待期间运行其他代码
     </script>
 </body>
 </html>

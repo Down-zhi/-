@@ -31,14 +31,14 @@
 
 <body>
     <div class="image-container">
-        <img id="image" class="image" src="../Mi-Mall/images/Carousel2.webp">
+        <img id="image" class="image" src="D:\code\Mi-Mall\images\Carousel2.webp">
     </div>
-    <button class="btn1">点击切换到上一张</button>
+    <button onclick='preImage()' class="btn1">点击切换到上一张</button>
     <button onclick="nextImage()">点击切换到下一张</button>
 
     <script>
         let index = 0;
-        const images = ['../Mi-Mall/images/Carousel2.webp', '../Mi-Mall/images/Carousel4.webp', '../Mi-Mall/images/Carousel5.webp'];
+        const images = ['D:\code\Mi-Mall\images\Carousel1.webp', 'D:\code\Mi-Mall\images\Carousel3.webp', 'D:\code\Mi-Mall\images\Carousel4.webp'];
 
          $(function preImage(){
             if (index===0) {
